@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Characters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/kenney_prototypetextures/PNG/Green/texture_08.png" type="Texture" id=2]
+[ext_resource path="res://UI.tscn" type="PackedScene" id=3]
+
+[node name="FiringRange" type="Node2D"]
+
+[node name="bg" type="Sprite" parent="."]
+position = Vector2( 511, 299 )
+texture = ExtResource( 2 )
+
+[node name="UI" parent="." instance=ExtResource( 3 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 98, 566 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 511, 299 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Camera2D"]
+remote_path = NodePath("../../bg")
+
+[connection signal="value_changed" from="UI/VBoxContainer/SpinBox" to="Player" method="on_elevation_set"]
+
+[editable path="UI"]

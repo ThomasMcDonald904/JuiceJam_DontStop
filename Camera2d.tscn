@@ -50,7 +50,6 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grounds/Ground/StaticBody2D"]
 position = Vector2( 0.601446, -30.463 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="AngledGround" parent="Grounds" instance=ExtResource( 4 )]

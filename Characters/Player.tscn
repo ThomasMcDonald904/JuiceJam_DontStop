@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/kenney_prototypetextures/PNG/Dark/texture_05.png" type="Texture" id=1]
+[ext_resource path="res://Assets/kenney_prototypetextures/PNG/Dark/texture_04.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/DebugControls.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 96, 32 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 8 )
+
+[node name="Player" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Carriage" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Carriage"]
+position = Vector2( -1.90735e-06, 0 )
+scale = Vector2( 0.1875, 0.0625 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="Carriage/Sprite"]
+position = Vector2( 1.01725e-05, 0 )
+scale = Vector2( 5.33333, 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Carriage/Sprite/Area2D"]
+shape = SubResource( 2 )
+
+[node name="Elevation" type="Node2D" parent="."]
+position = Vector2( 48, -16 )
+
+[node name="Sprite" type="Sprite" parent="Elevation"]
+position = Vector2( 64, 0 )
+scale = Vector2( 0.125, 0.015625 )
+texture = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="Elevation/Sprite"]
+position = Vector2( -3.05176e-05, 0 )
+scale = Vector2( 8, 64 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elevation/Sprite/Area2D"]
+shape = SubResource( 1 )
+
+[node name="DebugControls" type="Node" parent="."]
+script = ExtResource( 4 )
