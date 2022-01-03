@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Camera2D.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://AngledGround.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 120.5, 43 )
@@ -11,15 +10,15 @@ extents = Vector2( 120.5, 43 )
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.2843, 1.68518 )
 
-[node name="ShootEnemiesWithGunView" type="Node2D"]
+[node name="Main" type="Node2D"]
 
-[node name="Enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1646, 566 )
+[node name="Enemy" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2273, 564 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 513, 301 )
 current = true
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
 [node name="Cannon" type="StaticBody2D" parent="."]
 position = Vector2( 120, 558 )
@@ -29,7 +28,7 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="Cannon"]
 scale = Vector2( 3.78125, 1.35937 )
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cannon"]
 position = Vector2( 0.5, 0 )
@@ -39,9 +38,9 @@ shape = SubResource( 3 )
 
 [node name="Ground" type="Sprite" parent="Grounds"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 862.5, 817 )
-scale = Vector2( 32.4219, 6.75 )
-texture = ExtResource( 2 )
+position = Vector2( 1555.5, 817 )
+scale = Vector2( 54.0781, 6.75 )
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -51,11 +50,3 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grounds/Ground/StaticBody2D"]
 position = Vector2( 0.601446, -30.463 )
 shape = SubResource( 1 )
-
-[node name="AngledGround" parent="Grounds" instance=ExtResource( 4 )]
-position = Vector2( 691, 598 )
-rotation = 0.785398
-
-[node name="AngledGround2" parent="Grounds" instance=ExtResource( 4 )]
-position = Vector2( 971, 598 )
-rotation = -0.785398
