@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/kenney_prototypetextures/PNG/Dark/texture_05.png" type="Texture" id=1]
 [ext_resource path="res://Assets/kenney_prototypetextures/PNG/Dark/texture_04.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/DebugControls.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 96, 32 )
@@ -43,5 +42,9 @@ scale = Vector2( 8, 64 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elevation/Sprite/Area2D"]
 shape = SubResource( 1 )
 
-[node name="DebugControls" type="Node" parent="."]
-script = ExtResource( 4 )
+[node name="BarrelMouthNode" type="Node2D" parent="Elevation"]
+position = Vector2( 128, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 415, -266 )
+current = true

@@ -14,6 +14,13 @@ config/name="JuiceJam_DontStop"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="shell"
+2d_physics/layer_3="enemy"
+2d_physics/layer_4="ground"
+
 [physics]
 
 common/enable_pause_aware_picking=true
