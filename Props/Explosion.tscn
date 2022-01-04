@@ -1,10 +1,10 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/Explosion.gd" type="Script" id=1]
-[ext_resource path="res://Assets/particlePack_1.1/PNG (Transparent)/light_03.png" type="Texture" id=2]
+[ext_resource path="res://Assets/particlePack_1.1/PNG (Transparent)/smoke_02.png" type="Texture" id=2]
 [ext_resource path="res://Assets/particlePack_1.1/PNG (Transparent)/smoke_07.png" type="Texture" id=3]
-[ext_resource path="res://Assets/particlePack_1.1/PNG (Transparent)/smoke_09.png" type="Texture" id=4]
-[ext_resource path="res://Assets/particlePack_1.1/PNG (Transparent)/light_01.png" type="Texture" id=5]
+[ext_resource path="res://Assets/particlePack_1.1/PNG (Transparent)/light_03.png" type="Texture" id=4]
+[ext_resource path="res://Assets/particlePack_1.1/PNG (Transparent)/light_02.png" type="Texture" id=5]
 [ext_resource path="res://Assets/particlePack_1.1/PNG (Transparent)/muzzle_03.png" type="Texture" id=6]
 
 [sub_resource type="Curve" id=35]
@@ -24,32 +24,40 @@ scale = 0.5
 scale_curve = SubResource( 36 )
 color = Color( 1, 0.427451, 0.239216, 1 )
 
+[sub_resource type="Curve" id=38]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.429329, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 27.0552 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=39]
+curve = SubResource( 38 )
+
 [sub_resource type="Gradient" id=19]
-offsets = PoolRealArray( 0, 0.18, 0.772 )
-colors = PoolColorArray( 0.694118, 0.694118, 0.694118, 0.141176, 0.741176, 0.741176, 0.741176, 1, 0.996078, 0.996078, 0.996078, 0 )
+offsets = PoolRealArray( 0, 0.504, 1 )
+colors = PoolColorArray( 0.34902, 0.34902, 0.34902, 0.2, 0.34902, 0.34902, 0.34902, 1, 0.584314, 0.584314, 0.584314, 0 )
 
 [sub_resource type="GradientTexture" id=20]
 gradient = SubResource( 19 )
 
 [sub_resource type="Curve" id=28]
 max_value = 3.0
-_data = [ Vector2( 0, 0.0391104 ), 0.0, 0.0, 0, 0, Vector2( 0.0123675, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 2.2592 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0.0391104 ), 0.0, 0.0, 0, 0, Vector2( 0.0123675, 1.70936 ), 135.051, 0.0, 1, 0, Vector2( 1, 2.2592 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=29]
 curve = SubResource( 28 )
 
 [sub_resource type="ParticlesMaterial" id=23]
-emission_shape = 1
-emission_sphere_radius = 64.0
 flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
-spread = 0.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 200.0
+initial_velocity = 268.84
 initial_velocity_random = 1.0
-angular_velocity = 5.0
+angular_velocity_random = 1.0
+angular_velocity_curve = SubResource( 39 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
+linear_accel = 18.19
+radial_accel = 1.0
 scale_curve = SubResource( 29 )
 color_ramp = SubResource( 20 )
 
@@ -133,7 +141,7 @@ lifetime = 5.0
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource( 23 )
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 
 [node name="Explosion" type="Particles2D" parent="."]
 position = Vector2( -1, -18 )
@@ -142,7 +150,7 @@ amount = 10
 one_shot = true
 explosiveness = 0.93
 process_material = SubResource( 30 )
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 
 [node name="Explosion2" type="Particles2D" parent="."]
 position = Vector2( 0, -76 )
