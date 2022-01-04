@@ -1,10 +1,9 @@
 extends Node2D
-
+class_name Explosion
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,3 +21,5 @@ func _on_Shell_explode():
 	$Explosion2.emitting = true
 	$Explosion3.emitting = true
 	$PrincipalExplosion.emitting = true
+	$BlastWave/CollisionShape2D.disabled = false
+	$Shrapnel/CollisionShape2D.disabled = false

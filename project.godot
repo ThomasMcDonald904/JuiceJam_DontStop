@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Explosion",
+"language": "GDScript",
+"path": "res://Scripts/Explosion.gd"
+} ]
+_global_script_class_icons={
+"Explosion": ""
+}
+
 [application]
 
 config/name="JuiceJam_DontStop"
@@ -35,6 +45,8 @@ machineGunShoot={
 2d_physics/layer_2="shell"
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="ground"
+2d_physics/layer_5="blast_wave"
+2d_physics/layer_6="shrapnel"
 
 [physics]
 

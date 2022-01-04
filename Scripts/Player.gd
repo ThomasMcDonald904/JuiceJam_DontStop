@@ -8,7 +8,6 @@ var elevationDegrees = 0.0
 var propellantCharge = 0
 onready var elevationNode = $Elevation
 onready var barrelMouthNode = $Elevation/BarrelMouthNode
-onready var cameraNode = $Camera2D
 export(int) var healthPoints = 15
 var shellInstance = null
 var shellExploded = false
@@ -17,12 +16,6 @@ var shell: PackedScene = preload("res://Props/Shell.tscn")
 
 #func _ready():
 #	pass # Replace with function body.
-
-func _physics_process(delta):
-		if shellInstance != null && !shellExploded:
-			cameraNode.position = shellInstance.position
-		if shellExploded && Input.is_action_just_pressed("ui_accept"):
-			cameraNode.offset = Vector2(415, -266)
 
 func _on_propellant_changed(value):
 	propellantCharge = value
@@ -44,12 +37,6 @@ func _on_Fire_pressed():
 	get_tree().get_root().add_child(shellInstance)
 	shellInstance.connect("explode", self, "_on_shell_exploded")
 	shellInstance.player = self
-
-func _draw():
-	draw_line(global_position, global_position + Vector2(-1, 0).rotated(deg2rad(45)) * 100, Color.darkred, 10)
-
-
-
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("Bullets"):

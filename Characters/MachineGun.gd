@@ -1,7 +1,9 @@
 extends Node2D
 
 var bullet: PackedScene = preload("res://Props/MachineGunBullet.tscn")
-var done = false
+export var rate_of_fire = 4
+var time_to_next_bullet = 0
+
 func _process(delta):
 	look_at(get_global_mouse_position())
 	if rotation_degrees <= -29.24:
@@ -11,18 +13,15 @@ func _process(delta):
 
 func _physics_process(delta):
 	if Input.is_action_pressed("machineGunShoot"):
-		if done == false:
-			$Timer.wait_time = 6.666 * delta
-			$Timer.start()
-			done = true
+		time_to_next_bullet += delta
+		if(time_to_next_bullet >= (1.0/rate_of_fire)):
+			_on_fire_bullet()
+			time_to_next_bullet = 0
 	else:
-		$Timer.stop()
-		done = false
+		time_to_next_bullet = 0
 
-
-func _on_Timer_timeout():
-		var bullet_instance = bullet.instance()
-		bullet_instance.global_position = $BarrelMuzzle.global_position
-		bullet_instance.rotation = rotation
-		get_tree().get_root().add_child(bullet_instance)
-		done = false
+func _on_fire_bullet():
+	var bullet_instance = bullet.instance()
+	bullet_instance.global_position = $BarrelMuzzle.global_position
+	bullet_instance.rotation = rotation
+	get_tree().get_root().add_child(bullet_instance)

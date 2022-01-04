@@ -1,0 +1,58 @@
+The aimed native resolution these graphics are made for are:
+320x180 px (1/6th of full HD)
+480x270 (272) px (1/4th of full HD)
+
+if you need more information on resolutions here is a chart:
+https://www.deviantart.com/cyangmou/art/Pixel-Gameart-101-06-Pixelart-Screen-Resolution-688071910
+
+Most of the character animations are created with having a basic framerate of 10 - 16 fps in mind (that's 60ms - 100ms per frame)
+The gal files are set to a speed of 60 ms / frame
+Animals: Most animations for the animals should be displayed with 60ms (16fps) to 100ms (10fps) per frame. There is wiggle room, but I created them with 80ms (12 fps)
+Props: Most animations for the animals should be displayed with 60ms (16fps) to 100ms (10fps) per frame. There is wiggle room, but I created them with 60ms (16 fps)
+
+Tilesets are seperated into: tilesets, gms2 tilesets and add-ons
+tilesets - those are the basic tilesets, containing all normal tiles
+gms2 - those follow YoyoGames GameMaker Studio 2 autotile setup and can be used with the engine.
+add-ons - in case you don't use GameMaker Studio 2, the add-ons provide the same tiles as the gms2 tilesets, but sorted in a different way, which might be easier to use. The templates are delivered for a clearer usage.
+
+Graphics Gale can be downloaded for free here:
+https://graphicsgale.com/us/
+
+Tileset Instructions:
+I delivered a file with red borders and a gray bg. This is not meant to be used! but it shows you how the tiles are seperated on the 16x16 grid. In case you want to build your own complex houses and envrionments, study the mockup layers and this file.
+
+Animated Water:
+There are 6 animated water tiles in the tileset
+cliff left: left end of the water, use on the right edge of cliffs or bridge borders.
+cliff right: right end of the water, use on the left edge of cliffs or bridge borders
+cliff single middle: left and right end of cliff together, use under 1 tile wide pillars or under the bridge middle piece
+basic: 3 basic horizontal water tiles, which can be used interchangably.
+
+Animated Riverside: 
+Use behind the bridge, preferably on their own parallax layers. those are animated and should be displayed with 60-100ms/frame (10-16 fps).
+The middle of the animated riverside tiles, in case you want to map a really long bridge.
+
+Houses:
+The delivered houses are simplified quickly usable examples of what you can build from the tileset. You can either use the images, the tileset or use the tileset to create your own images.
+I hope those examples will inspire you to be creative or speed up your work and clarify the way the house tileset is meant to be used.
+
+Sky:
+has the hexcode color 
+56b3c0
+set it in the engine, if you want to be performant and have the clouds go behind the mountains!
+
+Enhancement Ideas:
+
+-More assetpacks in the same series can be found here:
+https://itch.io/c/880983/8-bit-side-scroller-series-by-cyangmou
+
+-In the lights assetpack there are a ton of lights, off states and destructed versions as well as particles which will work with this assetpacks lights:
+https://cyangmou.itch.io/8-bit-side-scroller-animated-lights
+
+-The animated water tiles can be used in conjunction with the Waterfall Caves Tileset. You either can use the waterfall for the village, or the water tiles directly in the cave.
+https://cyangmou.itch.io/side-scroller-waterfall-caves-tileset
+
+-The Forest Village tiles can be used interchangable with the Windmill Village tileset - if you want to have more variations for fields, houses and details, this is a great way to get more content, because both Tilesets provide a different selection of tiles.
+A great way woul dbe to mix up the walls and roofs of the tileset sinterchangably to get 2 more distinctive architecture styles from it (if your game has more towns, o r you need to vary houses more).
+https://cyangmou.itch.io/side-scroller-windmill-village
+
