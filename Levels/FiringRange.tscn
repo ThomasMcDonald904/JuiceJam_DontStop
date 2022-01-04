@@ -16,6 +16,12 @@ texture = ExtResource( 2 )
 
 [node name="UI" parent="." instance=ExtResource( 3 )]
 
+[node name="Elevation" parent="UI/VBoxContainer/ElevationAndFire/VBoxContainer" index="1"]
+value = 45.0
+
+[node name="Fire" parent="UI/VBoxContainer/ElevationAndFire" index="1"]
+shortcut_in_tooltip = false
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 98, 566 )
 
@@ -33,8 +39,9 @@ position = Vector2( 4203, 72 )
 scale = Vector2( 8.22656, 0.15625 )
 texture = ExtResource( 4 )
 
-[connection signal="value_changed" from="UI/HBoxContainer/VBoxContainer/Elevation" to="Player" method="on_elevation_set"]
-[connection signal="pressed" from="UI/HBoxContainer/Fire" to="Player" method="on_fire"]
+[connection signal="propellant_changed" from="UI" to="Player" method="_on_propellant_changed"]
+[connection signal="value_changed" from="UI/VBoxContainer/ElevationAndFire/VBoxContainer/Elevation" to="Player" method="_on_Elevation_value_changed"]
+[connection signal="pressed" from="UI/VBoxContainer/ElevationAndFire/Fire" to="Player" method="_on_Fire_pressed"]
 
 [editable path="UI"]
 [editable path="Player"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/kenney_prototypetextures/PNG/Orange/texture_09.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Shell.gd" type="Script" id=2]
+[ext_resource path="res://Props/Explosion.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -20,4 +21,9 @@ texture = ExtResource( 1 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
+[node name="Explosion" parent="." instance=ExtResource( 3 )]
+
 [connection signal="body_shape_entered" from="." to="." method="_on_Shell_body_shape_entered"]
+[connection signal="explode" from="." to="Explosion" method="_on_Shell_explode"]
+
+[editable path="Explosion"]

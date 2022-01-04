@@ -5,6 +5,9 @@ extends RigidBody2D
 # var a = 2
 # var b = "text"
 var player: Node
+onready var explosionNode = get_node("Explosion")
+
+signal explode
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,9 +21,13 @@ func _physics_process(delta):
 
 
 func _on_Shell_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	print("explode")
-	var cameraNode = $Camera2D
-	remove_child(cameraNode)
-	player.add_child(cameraNode)
+	emit_signal("explode")
+	disconnect("explode", explosionNode, "_on_Shell_explode")
+	#var cameraNode = $Camera2D
+	#remove_child(cameraNode)
+	#player.add_child(cameraNode)
+	$Sprite.visible = false
+	
+	remove_child(explosionNode)
 	queue_free()
 	pass # Replace with function body.
