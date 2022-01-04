@@ -9,6 +9,7 @@ var propellantCharge = 0
 onready var elevationNode = $Elevation
 onready var barrelMouthNode = $Elevation/BarrelMouthNode
 onready var cameraNode = $Camera2D
+export(int) var healthPoints = 15
 var shellInstance = null
 var shellExploded = false
 var shell: PackedScene = preload("res://Props/Shell.tscn")
@@ -43,3 +44,14 @@ func _on_Fire_pressed():
 	get_tree().get_root().add_child(shellInstance)
 	shellInstance.connect("explode", self, "_on_shell_exploded")
 	shellInstance.player = self
+
+func _draw():
+	draw_line(global_position, global_position + Vector2(-1, 0).rotated(deg2rad(45)) * 100, Color.darkred, 10)
+
+
+
+
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("Bullets"):
+		body.queue_free()
+		get_tree().get_root().get_node("Main/Control/HBoxContainer/LifePoints").lifePoints -= 1

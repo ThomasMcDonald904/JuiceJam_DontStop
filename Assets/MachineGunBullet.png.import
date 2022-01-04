@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/texture_03.png-cad55d87883df2afed023cce3f537cd8.stex"
+path="res://.import/MachineGunBullet.png-1642ec82eb64f38f1804992f3050a926.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/kenney_prototypetextures/PNG/Purple/texture_03.png"
-dest_files=[ "res://.import/texture_03.png-cad55d87883df2afed023cce3f537cd8.stex" ]
+source_file="res://Assets/MachineGunBullet.png"
+dest_files=[ "res://.import/MachineGunBullet.png-1642ec82eb64f38f1804992f3050a926.stex" ]
 
 [params]
 
