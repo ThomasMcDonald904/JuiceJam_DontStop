@@ -12,7 +12,6 @@
 [ext_resource path="res://Assets/Side-Scroller_Tileset6_v1_1/parallax/background_sky1_00.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Side-Scroller_Tileset5_v1_0/parallax/background_fields2_04_loopable.png" type="Texture" id=11]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.2843, 1.68518 )
 
