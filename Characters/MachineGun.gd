@@ -13,10 +13,10 @@ func _process(delta):
 
 func _physics_process(delta):
 	if Input.is_action_pressed("machineGunShoot"):
-		time_to_next_bullet += delta
-		if(time_to_next_bullet >= (1.0/rate_of_fire)):
+		time_to_next_bullet -= delta
+		if time_to_next_bullet <= 0:
 			_on_fire_bullet()
-			time_to_next_bullet = 0
+			time_to_next_bullet = 1.0/rate_of_fire
 	else:
 		time_to_next_bullet = 0
 

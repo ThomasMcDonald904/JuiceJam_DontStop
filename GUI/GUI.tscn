@@ -1,0 +1,350 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice frames/frame1_c2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/16x16_Iconsets_Stats&Skills_v1_1/iconset_16x16_00_basic.png" type="Texture" id=2]
+[ext_resource path="res://GUI/GUIFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/loadingbarBackground.png" type="Texture" id=4]
+[ext_resource path="res://Assets/loadingbarForeground.png" type="Texture" id=5]
+[ext_resource path="res://Assets/loadingbarFill.png" type="Texture" id=6]
+[ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice frames/frame3_c2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/uipack_fixed/Font/kenvector_future.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Assets/HE_shell.png" type="Texture" id=9]
+[ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice buttons/button_c2_normal.png" type="Texture" id=10]
+[ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice buttons/button_c2_pressed.png" type="Texture" id=11]
+[ext_resource path="res://GUI/GUI.gd" type="Script" id=12]
+[ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice buttons/button_c2_mouseover.png" type="Texture" id=13]
+[ext_resource path="res://Assets/ElevationWheel.png" type="Texture" id=14]
+[ext_resource path="res://GUI/ElevationWheel.gd" type="Script" id=15]
+[ext_resource path="res://GUI/ElevationControl.gd" type="Script" id=16]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+extra_spacing_bottom = -1
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 40
+extra_spacing_bottom = -1
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 40
+extra_spacing_bottom = -1
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 9.0
+margin_right = 9.0
+margin_top = 14.0
+margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 9.0
+margin_right = 9.0
+margin_top = 14.0
+margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 9.0
+margin_right = 9.0
+margin_top = 14.0
+margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 9.0
+margin_right = 9.0
+margin_top = 14.0
+margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 80, 32, 16, 16 )
+
+[node name="GUI" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 1880.0
+margin_bottom = 1040.0
+
+[node name="Status" type="HBoxContainer" parent="HBoxContainer"]
+margin_right = 1786.0
+margin_bottom = 1040.0
+size_flags_horizontal = 3
+
+[node name="LifeAndAmmo" type="VBoxContainer" parent="HBoxContainer/Status"]
+margin_right = 356.0
+margin_bottom = 1040.0
+
+[node name="Bar" type="HBoxContainer" parent="HBoxContainer/Status/LifeAndAmmo"]
+margin_right = 356.0
+margin_bottom = 48.0
+
+[node name="Count" type="MarginContainer" parent="HBoxContainer/Status/LifeAndAmmo/Bar"]
+margin_right = 96.0
+margin_bottom = 48.0
+
+[node name="Background" type="NinePatchRect" parent="HBoxContainer/Status/LifeAndAmmo/Bar/Count"]
+margin_right = 96.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 96, 48 )
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 48, 48 )
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Status/LifeAndAmmo/Bar/Count/Background"]
+margin_right = 40.0
+margin_bottom = 48.0
+texture = SubResource( 1 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Number" type="Label" parent="HBoxContainer/Status/LifeAndAmmo/Bar/Count/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 26.0
+margin_right = -6.0
+custom_fonts/font = ExtResource( 3 )
+text = "999"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gauge" type="TextureProgress" parent="HBoxContainer/Status/LifeAndAmmo/Bar"]
+margin_left = 100.0
+margin_top = 16.0
+margin_right = 356.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 256, 16 )
+size_flags_vertical = 4
+step = 4.0
+value = 100.0
+texture_under = ExtResource( 4 )
+texture_over = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
+nine_patch_stretch = true
+stretch_margin_left = 5
+stretch_margin_top = 2
+stretch_margin_right = 5
+stretch_margin_bottom = 2
+
+[node name="LoadedCharge" type="PanelContainer" parent="HBoxContainer/Status/LifeAndAmmo"]
+margin_top = 52.0
+margin_right = 356.0
+margin_bottom = 130.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Status/LifeAndAmmo/LoadedCharge"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 349.0
+margin_bottom = 71.0
+
+[node name="Propellant" type="NinePatchRect" parent="HBoxContainer/Status/LifeAndAmmo/LoadedCharge/HBoxContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/Status/LifeAndAmmo/LoadedCharge/HBoxContainer/Propellant"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "120 mm
+Prop
+1456G"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Propellant2" type="NinePatchRect" parent="HBoxContainer/Status/LifeAndAmmo/LoadedCharge/HBoxContainer"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/Status/LifeAndAmmo/LoadedCharge/HBoxContainer/Propellant2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "120 mm
+Prop
+1456G"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Status/LifeAndAmmo/LoadedCharge/HBoxContainer"]
+margin_left = 136.0
+margin_right = 264.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 128, 64 )
+texture = ExtResource( 9 )
+
+[node name="ElevationControl" type="PanelContainer" parent="HBoxContainer/Status/LifeAndAmmo"]
+margin_top = 134.0
+margin_right = 356.0
+margin_bottom = 276.0
+script = ExtResource( 16 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Status/LifeAndAmmo/ElevationControl"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 349.0
+margin_bottom = 135.0
+
+[node name="ElevationWheel" type="TextureRect" parent="HBoxContainer/Status/LifeAndAmmo/ElevationControl/HBoxContainer"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+rect_pivot_offset = Vector2( 64, 64 )
+mouse_filter = 0
+texture = ExtResource( 14 )
+script = ExtResource( 15 )
+
+[node name="Background2" type="NinePatchRect" parent="HBoxContainer/Status/LifeAndAmmo/ElevationControl/HBoxContainer"]
+margin_left = 132.0
+margin_right = 342.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 96, 48 )
+size_flags_horizontal = 3
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 48, 48 )
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Number" type="Label" parent="HBoxContainer/Status/LifeAndAmmo/ElevationControl/HBoxContainer/Background2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_right = -5.0
+custom_fonts/font = SubResource( 12 )
+text = "0.00°"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Status/LifeAndAmmo"]
+margin_top = 280.0
+margin_right = 356.0
+margin_bottom = 366.0
+
+[node name="FireButton" type="Button" parent="HBoxContainer/Status/LifeAndAmmo/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 349.0
+margin_bottom = 79.0
+rect_min_size = Vector2( 90, 64 )
+focus_mode = 0
+custom_fonts/font = SubResource( 13 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+enabled_focus_mode = 0
+text = "FIRE"
+expand_icon = true
+
+[node name="ViewSelect" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 1790.0
+margin_right = 1880.0
+margin_bottom = 1040.0
+
+[node name="PlayerView" type="Button" parent="HBoxContainer/ViewSelect"]
+margin_right = 90.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 90, 64 )
+focus_mode = 0
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+toggle_mode = true
+enabled_focus_mode = 0
+icon = SubResource( 8 )
+expand_icon = true
+
+[node name="RangeFinderView" type="Button" parent="HBoxContainer/ViewSelect"]
+margin_top = 68.0
+margin_right = 90.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 90, 64 )
+focus_mode = 0
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+toggle_mode = true
+enabled_focus_mode = 0
+icon = SubResource( 11 )
+expand_icon = true
+
+[node name="ShellView" type="Button" parent="HBoxContainer/ViewSelect"]
+margin_top = 136.0
+margin_right = 90.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 90, 64 )
+focus_mode = 0
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+toggle_mode = true
+enabled_focus_mode = 0
+icon = SubResource( 9 )
+expand_icon = true
+
+[connection signal="gui_input" from="HBoxContainer/Status/LifeAndAmmo/ElevationControl/HBoxContainer/ElevationWheel" to="HBoxContainer/Status/LifeAndAmmo/ElevationControl/HBoxContainer/ElevationWheel" method="_on_ElevationWheel_gui_input"]
+[connection signal="wheel_turned" from="HBoxContainer/Status/LifeAndAmmo/ElevationControl/HBoxContainer/ElevationWheel" to="HBoxContainer/Status/LifeAndAmmo/ElevationControl" method="_on_ElevationWheel_wheel_turned"]
+[connection signal="toggled" from="HBoxContainer/ViewSelect/PlayerView" to="." method="_on_PlayerView_toggled"]
+[connection signal="toggled" from="HBoxContainer/ViewSelect/RangeFinderView" to="." method="_on_RangeFinderView_toggled"]
+[connection signal="toggled" from="HBoxContainer/ViewSelect/ShellView" to="." method="_on_ShellView_toggled"]

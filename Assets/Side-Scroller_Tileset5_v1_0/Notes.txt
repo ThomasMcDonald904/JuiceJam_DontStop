@@ -1,0 +1,57 @@
+The aimed native resolution these graphics are made for are:
+320x180 px (1/6th of full HD)
+480x270 (272) px (1/4th of full HD)
+
+if you need more information on resolutions here is a chart:
+https://www.deviantart.com/cyangmou/art/Pixel-Gameart-101-06-Pixelart-Screen-Resolution-688071910
+
+Most of the character animations are created with having a basic framerate of 10 - 16 fps in mind (that's 60ms - 100ms per frame)
+The gal files are set to a speed of 60 ms / frame
+Animals: Most animations for the animals should be displayed with 60ms (16fps) to 100ms (10fps) per frame. There is wiggle room, but I created them with 80ms (12 fps)
+Props: Most animations for the animals should be displayed with 60ms (16fps) to 100ms (10fps) per frame. There is wiggle room, but I created them with 60ms (16 fps)
+
+Tilesets are seperated into: tilesets, gms2 tilesets and add-ons
+tilesets - those are the basic tilesets, containing all normal tiles
+gms2 - those follow YoyoGames GameMaker Studio 2 autotile setup and can be used with the engine.
+add-ons - in case you don't use GameMaker Studio 2, the add-ons provide the same tiles as the gms2 tilesets, but sorted in a different way, which might be easier to use. The templates are delivered for a clearer usage.
+
+Graphics Gale can be downloaded for free here:
+https://graphicsgale.com/us/
+
+Tileset Instructions:
+I delivered a file with red borders and a gray bg. THis is not meant to be used! but it shows you how the tiles are seperated on the 16x16 grid. In case you want to build your own complex houses and envrionments, study the mockup layers and this file.
+
+Windmill:
+The windmill comes in 3 pieces: base, railing and wings.
+The lowest layer is the "base", the middle layer is "wings", the foremost layer is "railing" (railing also should go in front of the character)
+The wings should be animated with an in-engine sprite rotation animation. The 45° frame in the mockup was just made by rotation without aliasing (but you won't need it)
+The wings are meant to rotate clockwise. In case you want to have them rotate counterclockwise, you'd need to mirror them, that it looks better.
+
+Cave Entrance:
+The cave entrance has a tileset layer basis and a foreground overlap. The tileset layer base, goes as the name says on the tileset layer (behind the character).
+The overlay goes in front of the character exactly on the tileset layer cave. This will overlap the character if he enters the cave, creating an illusion that the character will enter the cave.
+
+Houses:
+The delivered houses are simplified quickly usable examples of what you can build from the tileset. You can either use the images, the tileset or use the tileset to create your own images.
+I hope those examples will inspire you to be creative or speed up your work and clarify the way the house tileset is meant to be used.
+
+Sky:
+has the hexcode color 
+699efc
+set it in the engine, if you want to be performant and have the clouds go behind the mountains!
+
+Enhancement Ideas:
+
+-More assetpacks in the same series can be found here:
+https://itch.io/c/880983/8-bit-side-scroller-series-by-cyangmou
+
+-In the lights assetpack there are a ton of lights, off states and destructed versions as well as particles which will work with this assetpacks lights:
+https://cyangmou.itch.io/8-bit-side-scroller-animated-lights
+
+-If you need more tiles fitting to the grass tiles or trees you will find them in the "Plains" assetpack, which has full corners, a midground layer and much more eveldesign elements.
+https://cyangmou.itch.io/side-scroller-plains-tileset
+
+-If you want to use the cave connection, it was intented to work together with the "Waterfall Caves" Assetpack. The leveldesign tiles connect to the top part of the cave.
+https://cyangmou.itch.io/side-scroller-waterfall-caves-tileset
+
+
