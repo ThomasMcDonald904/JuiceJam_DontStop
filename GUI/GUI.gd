@@ -8,6 +8,9 @@ extends MarginContainer
 signal use_player_view
 signal use_free_view
 signal use_shell_view
+
+signal propellant_added
+signal propellant_removed
 onready var tween: Tween = $HBoxContainer/Status/LifeAndAmmo/Tween
 var animated_health = 0
 # Called when the node enters the scene tree for the first time.
@@ -60,4 +63,11 @@ func _on_Player_life_changed(new_value):
 	tween.interpolate_property(self, "animated_health", animated_health, new_value, 0.6)
 	if not tween.is_active():
 		tween.start()
-	pass # Replace with function body.
+
+
+func _on_LoadedCharge_propellant_added():
+	emit_signal("propellant_added")
+
+
+func _on_LoadedCharge_propellant_removed():
+	emit_signal("propellant_removed")

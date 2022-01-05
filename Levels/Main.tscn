@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Side-Scroller_Tileset5_v1_0/parallax/simplified/background_mountains2_all.png" type="Texture" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Characters/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Characters/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Side-Scroller_Tileset6_v1_1/objects/church.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Side-Scroller_Tileset5_v1_0/parallax/simplified/background_fields1_all.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/View.gd" type="Script" id=8]
 [ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=9]
@@ -37,6 +38,10 @@ texture = ExtResource( 13 )
 [node name="Sprite2" type="Sprite" parent="Node2D2"]
 position = Vector2( 396, 8 )
 texture = ExtResource( 16 )
+
+[node name="Sprite4" type="Sprite" parent="Node2D2"]
+position = Vector2( 630, -64 )
+texture = ExtResource( 5 )
 
 [node name="Sprite3" type="Sprite" parent="Node2D2"]
 position = Vector2( -217, -55 )
@@ -96,6 +101,7 @@ texture = ExtResource( 10 )
 centered = false
 
 [node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_scale = Vector2( 0.1, 0.1 )
 motion_offset = Vector2( 0, 936 )
 motion_mirroring = Vector2( 1920, 0 )
@@ -107,6 +113,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 1920, 96 )
 
 [node name="FieldsFar" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_scale = Vector2( 0.4, 0.4 )
 motion_offset = Vector2( 0, 968 )
 motion_mirroring = Vector2( 1920, 0 )
@@ -118,6 +125,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 1920, 128 )
 
 [node name="FieldsNear" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_scale = Vector2( 0.6, 0.6 )
 motion_offset = Vector2( 0, 1025 )
 motion_mirroring = Vector2( 1920, 0 )
@@ -155,6 +163,8 @@ margin_bottom = 1080.0
 [connection signal="life_changed" from="Player" to="CanvasLayer/GUI" method="_on_Player_life_changed"]
 [connection signal="shell_exploded" from="Player" to="View" method="_on_Player_shell_exploded"]
 [connection signal="shell_fired" from="Player" to="View" method="_on_Player_shell_fired"]
+[connection signal="propellant_added" from="CanvasLayer/GUI" to="Player" method="_on_GUI_propellant_added"]
+[connection signal="propellant_removed" from="CanvasLayer/GUI" to="Player" method="_on_GUI_propellant_removed"]
 [connection signal="use_free_view" from="CanvasLayer/GUI" to="View" method="_on_GUI_use_free_view"]
 [connection signal="use_player_view" from="CanvasLayer/GUI" to="View" method="_on_GUI_use_player_view"]
 [connection signal="use_shell_view" from="CanvasLayer/GUI" to="View" method="_on_GUI_use_shell_view"]

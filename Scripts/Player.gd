@@ -5,7 +5,7 @@ extends Node2D
 # var a = 2
 # var b = "text"
 var elevationDegrees = 0.0
-var propellantCharge = 1
+var propellantCharge = 0
 onready var elevationNode = $Elevation
 onready var barrelMouthNode = $Elevation/BarrelMouthNode
 export(int) var healthPoints = 15
@@ -52,3 +52,11 @@ func _on_FireButton_pressed():
 	emit_signal("shell_fired", shellInstance)
 	shellInstance.connect("explode", self, "_on_shell_exploded")
 	shellInstance.player = self
+
+
+func _on_GUI_propellant_added():
+	propellantCharge += 1
+
+
+func _on_GUI_propellant_removed():
+	propellantCharge -= 1
