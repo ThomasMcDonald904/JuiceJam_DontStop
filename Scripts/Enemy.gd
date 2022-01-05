@@ -1,8 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2.ZERO
-var bullet = preload("res://Characters/Bullet.tscn")
-var bulletSpeed = 10
+var bullet = preload("res://Props/Bullet.tscn")
 var rng = RandomNumberGenerator.new()
 var waitForTimer = false
 var done = false
