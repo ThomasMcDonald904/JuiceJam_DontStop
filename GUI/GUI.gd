@@ -18,6 +18,8 @@ func _ready():
 		$HBoxContainer/Status/LifeAndAmmo/Bar/Gauge.max_value = animated_health
 		$HBoxContainer/Status/LifeAndAmmo/Bar/Gauge.value = animated_health
 		$HBoxContainer/Status/LifeAndAmmo/Bar/Count/Background/Number.text = String(animated_health)
+	var playerButton = get_node("HBoxContainer/ViewSelect/PlayerView")
+	playerButton.pressed = true
 	pass # Replace with function body.
 
 

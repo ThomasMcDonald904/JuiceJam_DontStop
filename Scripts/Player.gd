@@ -15,6 +15,8 @@ var shellExploded = false
 var shell: PackedScene = preload("res://Props/Shell.tscn")
 
 signal life_changed(value)
+signal shell_fired(shell)
+signal shell_exploded
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
@@ -24,6 +26,7 @@ func _on_propellant_changed(value):
 	propellantCharge = value
 
 func _on_shell_exploded():
+	emit_signal("shell_exploded")
 	shellExploded = true
 
 func _on_Area2D_body_entered(body):
@@ -39,11 +42,13 @@ func _on_ElevationControl_elevation_changed(value):
 
 
 func _on_FireButton_pressed():
+	
 	shellExploded = false
 	shellInstance = shell.instance()
 	shellInstance.global_position = barrelMouthNode.global_position
 	shellInstance.rotation = barrelMouthNode.rotation
 	shellInstance.linear_velocity = Vector2(500*propellantCharge,0).rotated(deg2rad(-elevationDegrees))
 	get_tree().get_root().add_child(shellInstance)
+	emit_signal("shell_fired", shellInstance)
 	shellInstance.connect("explode", self, "_on_shell_exploded")
 	shellInstance.player = self

@@ -317,6 +317,7 @@ icon = SubResource( 8 )
 expand_icon = true
 
 [node name="RangeFinderView" type="Button" parent="HBoxContainer/ViewSelect"]
+visible = false
 margin_top = 68.0
 margin_right = 90.0
 margin_bottom = 132.0
@@ -331,9 +332,9 @@ icon = SubResource( 11 )
 expand_icon = true
 
 [node name="ShellView" type="Button" parent="HBoxContainer/ViewSelect"]
-margin_top = 136.0
+margin_top = 68.0
 margin_right = 90.0
-margin_bottom = 200.0
+margin_bottom = 132.0
 rect_min_size = Vector2( 90, 64 )
 focus_mode = 0
 custom_styles/hover = SubResource( 5 )

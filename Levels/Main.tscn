@@ -74,10 +74,11 @@ position = Vector2( 96, 1017 )
 maxHealthPoints = 25
 
 [node name="View" type="Node2D" parent="."]
+position = Vector2( -278, -115 )
 script = ExtResource( 8 )
 
 [node name="Camera2D" type="Camera2D" parent="View"]
-anchor_mode = 0
+position = Vector2( 549, 617 )
 current = true
 limit_left = 0
 limit_top = 0
@@ -152,6 +153,8 @@ margin_right = 1920.0
 margin_bottom = 1080.0
 
 [connection signal="life_changed" from="Player" to="CanvasLayer/GUI" method="_on_Player_life_changed"]
+[connection signal="shell_exploded" from="Player" to="View" method="_on_Player_shell_exploded"]
+[connection signal="shell_fired" from="Player" to="View" method="_on_Player_shell_fired"]
 [connection signal="use_free_view" from="CanvasLayer/GUI" to="View" method="_on_GUI_use_free_view"]
 [connection signal="use_player_view" from="CanvasLayer/GUI" to="View" method="_on_GUI_use_player_view"]
 [connection signal="use_shell_view" from="CanvasLayer/GUI" to="View" method="_on_GUI_use_shell_view"]

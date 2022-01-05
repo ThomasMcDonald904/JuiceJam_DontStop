@@ -8,9 +8,13 @@ extends TextureRect
 var clickPoint = Vector2(0,0)
 var dragDistance = 0
 var clicked = false
+var min_elevation = 0
+var max_elevation = 0
 signal wheel_turned(value)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	min_elevation = get_node("../..").min_elevation
+	max_elevation = get_node("../..").max_elevation
 	pass # Replace with function body.
 
 
@@ -18,12 +22,12 @@ func _ready():
 func _process(delta):
 	if clicked:
 		var mousePos = get_viewport().get_mouse_position()
-		var currentDragDistance = (mousePos - clickPoint).length() * sign(mousePos.x - clickPoint.x)*-1
+		var currentDragDistance = (clickPoint-mousePos).length() * sign(mousePos.x - clickPoint.x) * -1*delta
 		if currentDragDistance != 0:
-			dragDistance += currentDragDistance
-			emit_signal("wheel_turned", currentDragDistance)
+			dragDistance = clamp(dragDistance + currentDragDistance, min_elevation, max_elevation)
+			emit_signal("wheel_turned", dragDistance)
 			rect_rotation = -dragDistance
-			clickPoint = get_viewport().get_mouse_position()
+			#clickPoint = get_viewport().get_mouse_position()
 	pass
 
 func _on_ElevationWheel_gui_input(event: InputEvent):

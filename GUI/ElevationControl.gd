@@ -23,7 +23,7 @@ func _ready():
 
 func _on_ElevationWheel_wheel_turned(value):
 	print(value)
-	elevation = clamp(elevation+value/10, min_elevation, max_elevation)
+	elevation = value
 	emit_signal("elevation_changed", elevation)
 	readout.text = "%2.2f°" % elevation
 	pass # Replace with function body.
