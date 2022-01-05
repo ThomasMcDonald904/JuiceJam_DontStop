@@ -9,13 +9,16 @@ var propellantCharge = 1
 onready var elevationNode = $Elevation
 onready var barrelMouthNode = $Elevation/BarrelMouthNode
 export(int) var healthPoints = 15
+export(int) var maxHealthPoints = 15
 var shellInstance = null
 var shellExploded = false
 var shell: PackedScene = preload("res://Props/Shell.tscn")
+
+signal life_changed(value)
 # Called when the node enters the scene tree for the first time.
 
-#func _ready():
-#	pass # Replace with function body.
+func _ready():
+	pass # Replace with function body.
 
 func _on_propellant_changed(value):
 	propellantCharge = value
@@ -26,7 +29,8 @@ func _on_shell_exploded():
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("Bullets"):
 		body.queue_free()
-		get_tree().get_root().get_node("Main/Control/HBoxContainer/LifePoints").lifePoints -= 1
+		healthPoints -= 1
+		emit_signal("life_changed", healthPoints)
 
 
 func _on_ElevationControl_elevation_changed(value):
