@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Side-Scroller_Tileset6_v1_1/objects/church.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Map.gd" type="Script" id=3]
+[ext_resource path="res://Assets/PathTexture.png" type="Texture" id=4]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 673, 1179.71, -0.890899, 44.7783, 0.890899, -44.7783, 674, 1116.88, 16.6489, 173.624, -16.6489, -173.624, 810, 956.669, -28.541, 249.733, 28.541, -249.733, 565, 657, 4.75683, 259.247, -4.75683, -259.247, 836, 396, -61.8388, 152.218, 61.8388, -152.218, 567, 53 )
+}
+
+[node name="Map" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0.980392, 0.921569, 0.843137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RailwayPath" type="Path2D" parent="."]
+position = Vector2( 34, -47.6148 )
+scale = Vector2( 1, 0.954996 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="RailwayPath"]
+position = Vector2( 673, 1179.71 )
+rotation = -1.56173
+
+[node name="Sprite" type="Sprite" parent="RailwayPath/PathFollow2D"]
+rotation = 1.5708
+z_index = 1
+texture = ExtResource( 1 )
+
+[node name="Stations" type="Node" parent="."]
+
+[node name="Station" type="Sprite" parent="Stations"]
+position = Vector2( 909, 854 )
+scale = Vector2( 0.285156, 0.285156 )
+texture = ExtResource( 2 )
+
+[node name="Station2" type="Sprite" parent="Stations"]
+position = Vector2( 527, 559 )
+scale = Vector2( 0.285156, 0.285156 )
+texture = ExtResource( 2 )
+
+[node name="Station3" type="Sprite" parent="Stations"]
+position = Vector2( 939, 302 )
+scale = Vector2( 0.285156, 0.285156 )
+texture = ExtResource( 2 )
+
+[node name="Station4" type="Sprite" parent="Stations"]
+position = Vector2( 522, 52 )
+scale = Vector2( 0.285156, 0.285156 )
+texture = ExtResource( 2 )
+
+[node name="PathSprite" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 676, 538.996 )
+scale = Vector2( 1.85714, 1.8846 )
+texture = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
