@@ -9,7 +9,7 @@ var stations = [["NoSceneHere", 0], ["res://Levels/Main.tscn", 295.04], ["LevelN
 var startingStation = 0
 var nextStation = startingStation + 1
 #Change this to change how long the train movement takes
-var TrainTime = 3
+var TrainTime = 4
 
 func _ready():
 	$RailwayPath/PathFollow2D.offset = stations[startingStation][1]
