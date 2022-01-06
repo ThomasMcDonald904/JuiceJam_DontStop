@@ -1,28 +1,25 @@
 extends Node2D
 
 onready var tween = get_node("Tween")
-var start = false
+var start = true
 signal GoToNextStation
+var next_level
 #Change the place holder "LevelName" to the path to the scene you want to change to
 var stations = [["NoSceneHere", 0], ["res://Levels/Main.tscn", 295.04], ["LevelName", 727.78], ["LevelName", 1180.18], ["LevelName", 1593.24]]
 #Change this to change at which station the trains starts at
 var startingStation = 0
 var nextStation = startingStation + 1
 #Change this to change how long the train movement takes
-var TrainTime = 4
+var TrainTime = 6
 
 func _ready():
 	$RailwayPath/PathFollow2D.offset = stations[startingStation][1]
 	connect("GoToNextStation", self, "_nextStation")
 
 func _process(delta):
-	if Input.is_action_pressed("up_arrow"):
-		start = true
-	else:
-		start = false
-
-	if start == true:
-		tween.interpolate_property($RailwayPath/PathFollow2D, "offset", $RailwayPath/PathFollow2D.offset, stations[nextStation][1], TrainTime, Tween.TRANS_QUINT, Tween.EASE_OUT)
+	if start:
+		next_level = load(stations[nextStation][0])
+		tween.interpolate_property($RailwayPath/PathFollow2D, "offset", $RailwayPath/PathFollow2D.offset, stations[nextStation][1], TrainTime, Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
 		$Timer.wait_time = TrainTime
 		tween.start()
 		$Timer.start()
@@ -37,3 +34,7 @@ func _nextStation():
 
 func _on_Timer_timeout():
 	emit_signal("GoToNextStation")
+
+
+func _on_Tween_tween_all_completed():
+	get_tree().change_scene_to(next_level)

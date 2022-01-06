@@ -148,7 +148,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="InputPromptDelay" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 2.0
 one_shot = true
 
 [connection signal="pressed" from="ClosedLetter" to="." method="_on_ClosedLetter_pressed"]

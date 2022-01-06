@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://GUI/GUIClickPrompt.tres" type="Animation" id=1]
 [ext_resource path="res://GUI/RadioMessage.gd" type="Script" id=2]
@@ -8,22 +8,23 @@
 [ext_resource path="res://Assets/RadioReceiverSpeaker.png" type="Texture" id=6]
 [ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice frames/frame1_c2.png" type="Texture" id=7]
 [ext_resource path="res://Assets/kingthings-trypewriter-2/Kingthings Trypewriter 2.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Assets/uipack_fixed/Bonus/switch2.ogg" type="AudioStream" id=9]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 20, 18 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 4 )
 region = Rect2( 128, 32, 16, 16 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=9]
 size = 24
 font_data = ExtResource( 8 )
 
-[sub_resource type="Animation" id=7]
-resource_name = "IntroDialogAnimation"
+[sub_resource type="Animation" id=10]
 length = 2.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("RichTextLabel:percent_visible")
 tracks/0/interp = 1
@@ -35,6 +36,32 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../TextureButton/Speaker:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.4, 0.45, 0.5, 0.55, 0.75, 0.8, 0.85, 0.9, 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.5, 1.55, 1.6, 1.65, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../NextItemTimer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -63,6 +90,16 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 1.0 ]
 }
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("../TextureButton/Speaker:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
 
 [node name="RadioMessage" type="Control"]
 margin_right = 295.0
@@ -81,14 +118,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="TextureButton"]
+[node name="Speaker" type="TextureRect" parent="TextureButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 55.5
+margin_left = 56.0
 margin_top = 37.0
-margin_right = 55.5
-margin_bottom = 37.0
+margin_right = -44.0
+margin_bottom = -16.0
+rect_pivot_offset = Vector2( 23, 23 )
+mouse_filter = 2
 texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Switch" type="TextureRect" parent="TextureButton"]
 margin_top = 27.0
@@ -110,7 +152,7 @@ margin_top = -23.0
 margin_right = 6.0
 margin_bottom = 17.0
 rect_pivot_offset = Vector2( 20, 20 )
-texture = SubResource( 5 )
+texture = SubResource( 7 )
 stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -135,7 +177,7 @@ one_shot = true
 [node name="Tween" type="Tween" parent="."]
 
 [node name="InputPromptDelay" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 2.0
 one_shot = true
 
 [node name="Dialog" type="NinePatchRect" parent="."]
@@ -164,7 +206,7 @@ margin_left = 6.0
 margin_top = 7.0
 margin_right = -7.0
 margin_bottom = -7.0
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 9 )
 bbcode_enabled = true
 bbcode_text = "This is a test for the dialogue system."
 text = "This is a test for the dialogue system."
@@ -173,10 +215,14 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Dialog"]
-anims/IntroDialogAnimation = SubResource( 7 )
+anims/IntroDialogAnimation = SubResource( 10 )
 anims/RESET = SubResource( 8 )
 
+[node name="SwitchSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="animation_finished" from="TextureButton/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="NextItemTimer" to="." method="_on_NextItemTimer_timeout"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
 [connection signal="timeout" from="InputPromptDelay" to="." method="_on_InputPromptDelay_timeout"]

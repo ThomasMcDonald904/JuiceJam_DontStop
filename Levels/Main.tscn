@@ -85,7 +85,6 @@ position = Vector2( -278, -115 )
 script = ExtResource( 8 )
 
 [node name="Camera2D" type="Camera2D" parent="View"]
-position = Vector2( 549, 617 )
 current = true
 limit_left = 0
 limit_top = 0

@@ -9,6 +9,8 @@ onready var tween = get_node("Tween")
 onready var next_item_timer = get_node("NextItemTimer")
 var thrown = false
 var opened = false
+export(NodePath) var next_item_path
+onready var next_item = get_node(next_item_path)
 var toss_speed = 2000
 
 # Called when the node enters the scene tree for the first time.
@@ -32,6 +34,7 @@ func throw_on_desk():
 
 func _on_TextureButton_pressed():
 	$TextureButton/Switch.texture.region = Rect2(20,0,20,18)
+	$SwitchSound.play()
 	$TextureButton/ClickPrompt.visible = false
 	$TextureButton/AnimationPlayer.stop()
 	opened = true
@@ -48,3 +51,7 @@ func _on_InputPromptDelay_timeout():
 		$TextureButton/ClickPrompt.rect_rotation = -rect_rotation
 		$TextureButton/ClickPrompt.visible = true
 		$TextureButton/AnimationPlayer.play("GUIClickPrompt")
+
+func _on_NextItemTimer_timeout():
+	if next_item:
+		next_item.throw_on_desk()

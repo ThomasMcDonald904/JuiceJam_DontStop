@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/saint_martyr/saintmartyr.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice frames/frame1_c2.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Assets/BackgroundMainMenu.png" type="Texture" id=5]
 [ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice buttons/button_c2_mouseover.png" type="Texture" id=6]
 [ext_resource path="res://GUI/MainMenu.gd" type="Script" id=7]
+[ext_resource path="res://Assets/uipack_fixed/Bonus/switch2.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Assets/kingthings-trypewriter-2/Kingthings Trypewriter 2.ttf" type="DynamicFontData" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 120
@@ -64,12 +66,39 @@ margin_right = 9.0
 margin_top = 14.0
 margin_bottom = 14.0
 
+[sub_resource type="DynamicFont" id=7]
+size = 48
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 24
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 5.0
+margin_bottom = 5.0
+
 [node name="MainMenu" type="Node"]
 script = ExtResource( 7 )
 
+[node name="ButtonPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.113725, 0.113725, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BannerImage" type="TextureRect" parent="CanvasLayer"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -256.0
@@ -104,9 +133,9 @@ custom_fonts/font = SubResource( 1 )
 text = "With Artillery, War is made"
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
-margin_left = 353.0
+margin_left = 327.0
 margin_top = 132.0
-margin_right = 481.0
+margin_right = 508.0
 margin_bottom = 294.0
 size_flags_horizontal = 4
 custom_styles/panel = SubResource( 2 )
@@ -117,11 +146,11 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer"]
 margin_left = 16.0
 margin_top = 5.0
-margin_right = 112.0
+margin_right = 165.0
 margin_bottom = 157.0
 
-[node name="StartButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
-margin_right = 96.0
+[node name="NewGame" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_right = 149.0
 margin_bottom = 74.0
 focus_mode = 0
 custom_fonts/font = SubResource( 3 )
@@ -129,11 +158,11 @@ custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 enabled_focus_mode = 0
-text = "Start"
+text = "New Game"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 margin_top = 78.0
-margin_right = 96.0
+margin_right = 149.0
 margin_bottom = 152.0
 focus_mode = 0
 custom_fonts/font = SubResource( 3 )
@@ -143,5 +172,58 @@ custom_styles/normal = SubResource( 6 )
 enabled_focus_mode = 0
 text = "Quit"
 
-[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[node name="NameEntry" type="PanelContainer" parent="CanvasLayer/CenterContainer"]
+visible = false
+margin_left = 944.0
+margin_top = 535.0
+margin_right = 976.0
+margin_bottom = 545.0
+size_flags_horizontal = 4
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CenterContainer/NameEntry"]
+margin_left = 16.0
+margin_top = 5.0
+margin_right = 506.0
+margin_bottom = 79.0
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/NameEntry/HBoxContainer"]
+margin_top = 11.0
+margin_right = 130.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 7 )
+text = "Your Name:"
+
+[node name="NameEnter" type="LineEdit" parent="CanvasLayer/CenterContainer/NameEntry/HBoxContainer"]
+margin_left = 134.0
+margin_right = 390.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 256, 0 )
+custom_fonts/font = SubResource( 9 )
+custom_styles/normal = SubResource( 8 )
+placeholder_text = "Enter Your NAME"
+
+[node name="StartButton" type="Button" parent="CanvasLayer/CenterContainer/NameEntry/HBoxContainer"]
+margin_left = 394.0
+margin_right = 490.0
+margin_bottom = 74.0
+focus_mode = 0
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+disabled = true
+enabled_focus_mode = 0
+text = "Start"
+
+[connection signal="button_down" from="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/NewGame" to="." method="_on_StartButton_button_down"]
+[connection signal="button_down" from="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/NewGame" to="." method="_on_NewGame_button_down"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="button_down" from="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_button_down"]
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="text_changed" from="CanvasLayer/CenterContainer/NameEntry/HBoxContainer/NameEnter" to="." method="_on_NameEnter_text_changed"]
+[connection signal="button_down" from="CanvasLayer/CenterContainer/NameEntry/HBoxContainer/StartButton" to="." method="_on_StartButton_button_down"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/NameEntry/HBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]

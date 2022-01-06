@@ -1,0 +1,238 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Assets/saint_martyr/saintmartyrital.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/kingthings-trypewriter-2/Kingthings Trypewriter 2.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://GUI/MilitaryContract.gd" type="Script" id=3]
+[ext_resource path="res://Assets/GUI_set05_Books_Letters_Scrolls_Papers_Notes_v1_1/tiledElements/PlacedExamples_480x272/Example_Papersheet.png" type="Texture" id=4]
+[ext_resource path="res://Assets/input-prompts-pixel-16/Tilemap/tilemap_packed.png" type="Texture" id=5]
+[ext_resource path="res://Assets/reman/Reman.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 4 )
+region = Rect2( 112, 39, 256, 193 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 2 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 128, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 5 )
+region = Rect2( 144, 32, 16, 16 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "ClickPrompt"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ClickPrompt:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ SubResource( 7 ), SubResource( 6 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Signature:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "SignatureWriting"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Signature:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="DynamicFont" id=12]
+size = 90
+extra_spacing_top = 6
+font_data = ExtResource( 7 )
+
+[node name="MilitaryContract" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -540.0
+margin_right = -920.0
+margin_bottom = -500.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_item_path = NodePath("../TelegramLetter2")
+
+[node name="Document" type="TextureButton" parent="."]
+anchor_right = 12.8
+anchor_bottom = 9.65
+margin_right = -472.0
+margin_bottom = -346.0
+rect_scale = Vector2( 2, 2 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="RichTextLabel" parent="Document"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -126.0
+margin_top = 11.0
+margin_right = 378.0
+margin_bottom = 47.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/default_color = Color( 0.196078, 0.0745098, 0, 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]Recruitment, United Stoneland Army[/center]"
+text = "Recruitment, United Stoneland Army"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TelegramText" type="RichTextLabel" parent="Document"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = 29.0
+margin_right = 218.0
+margin_bottom = 160.0
+rect_scale = Vector2( 0.5, 0.5 )
+mouse_filter = 1
+custom_colors/default_color = Color( 0.196078, 0.0745098, 0, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Notice Of Conscription[/center]
+
+By order of the empire, 
+you have been deemed eligible for military duty. Due to your extensive experience with artillery, you have been assigned to the first strike force and will be promoted to piece commander.
+
+
+
+Signature: "
+text = "Notice Of Conscription
+
+By order of the empire, 
+you have been deemed eligible for military duty. Due to your extensive experience with artillery, you have been assigned to the first strike force and will be promoted to piece commander.
+
+
+
+Signature: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerName" type="RichTextLabel" parent="Document"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 29.5
+margin_top = 127.5
+margin_right = 230.5
+margin_bottom = -40.5
+rect_scale = Vector2( 0.5, 0.5 )
+mouse_filter = 1
+custom_colors/default_color = Color( 0.196078, 0.0745098, 0, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+text = "I, [PLAYERNAME], accept this decree."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClickPrompt" type="TextureRect" parent="Document"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -3.5
+margin_top = 44.5
+margin_right = 36.5
+margin_bottom = 84.5
+rect_pivot_offset = Vector2( 20, 20 )
+texture = SubResource( 7 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Document"]
+anims/ClickPrompt = SubResource( 8 )
+anims/RESET = SubResource( 10 )
+anims/SignatureWriting = SubResource( 11 )
+
+[node name="Signature" type="RichTextLabel" parent="Document"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -172.0
+margin_top = -49.5
+margin_right = 502.0
+margin_bottom = 132.5
+rect_scale = Vector2( 0.25, 0.25 )
+mouse_filter = 1
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 12 )
+visible_characters = 0
+percent_visible = 0.0
+text = "Player Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="LetterTarget" type="Control" parent="."]
+margin_right = 39.9999
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextItemTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="InputPromptDelay" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="pressed" from="Document" to="." method="_on_Document_pressed"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="timeout" from="NextItemTimer" to="." method="_on_NextItemTimer_timeout"]
+[connection signal="timeout" from="InputPromptDelay" to="." method="_on_InputPromptDelay_timeout"]
