@@ -35,8 +35,8 @@ scale = Vector2( 2, 2 )
 [node name="BlastWave" type="Area2D" parent="Explosion"]
 position = Vector2( 0, -33 )
 scale = Vector2( 0.5, 0.5 )
-collision_layer = 16
-collision_mask = 0
+collision_layer = 18
+collision_mask = 4
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion/BlastWave"]
@@ -45,7 +45,7 @@ disabled = true
 
 [node name="Shrapnel" type="Area2D" parent="Explosion"]
 position = Vector2( 0, -21 )
-collision_layer = 32
+collision_layer = 34
 collision_mask = 0
 monitoring = false
 

@@ -11,8 +11,10 @@ func _process(delta):
 
 
 func _on_Area2D_body_entered(body):
-	lifePoints -= 1
+	print("body working")
+
+
 
 
 func _on_Area2D_area_entered(area):
-	lifePoints -= 1
+	print("area working")
