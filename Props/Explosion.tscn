@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/Explosion.gd" type="Script" id=1]
 [ext_resource path="res://Assets/particlePack_1.1/PNG (Transparent)/smoke_02.png" type="Texture" id=2]
@@ -120,6 +120,13 @@ scale = 0.1
 scale_curve = SubResource( 26 )
 color_ramp = SubResource( 12 )
 
+[sub_resource type="CircleShape2D" id=40]
+radius = 89.2693
+
+[sub_resource type="CapsuleShape2D" id=41]
+radius = 27.4997
+height = 183.0
+
 [node name="Explosion" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -153,7 +160,7 @@ process_material = SubResource( 30 )
 texture = ExtResource( 4 )
 
 [node name="Explosion2" type="Particles2D" parent="."]
-position = Vector2( 0, -76 )
+position = Vector2( 0, -79 )
 emitting = false
 amount = 1
 one_shot = true
@@ -162,7 +169,6 @@ process_material = SubResource( 37 )
 texture = ExtResource( 6 )
 
 [node name="FragmentDust" type="Particles2D" parent="."]
-position = Vector2( 0, 18 )
 emitting = false
 amount = 100
 lifetime = 5.0
@@ -170,3 +176,34 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource( 10 )
 texture = ExtResource( 3 )
+
+[node name="CollisionKillTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="FxKillTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="BlastWave" type="Area2D" parent="."]
+position = Vector2( 0, -33 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 18
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlastWave"]
+shape = SubResource( 40 )
+
+[node name="Shrapnel" type="Area2D" parent="."]
+position = Vector2( 0, -21 )
+collision_layer = 34
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shrapnel"]
+rotation = 1.5708
+shape = SubResource( 41 )
+
+[connection signal="timeout" from="CollisionKillTimer" to="." method="_on_CollisionKillTimer_timeout"]
+[connection signal="timeout" from="FxKillTimer" to="." method="_on_FxKillTimer_timeout"]

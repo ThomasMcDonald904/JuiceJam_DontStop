@@ -70,6 +70,7 @@ __meta__ = {
 }
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
 position = Vector2( 0.601446, -30.463 )
@@ -163,6 +164,9 @@ margin_bottom = 1080.0
 
 [node name="HeavyEnemy" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2012.74, 994 )
+
+[node name="GroundHeightNode" type="Node2D" parent="."]
+position = Vector2( 828, 1061 )
 
 [connection signal="life_changed" from="Player" to="CanvasLayer/GUI" method="_on_Player_life_changed"]
 [connection signal="shell_exploded" from="Player" to="View" method="_on_Player_shell_exploded"]

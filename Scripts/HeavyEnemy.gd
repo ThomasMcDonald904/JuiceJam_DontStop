@@ -49,14 +49,21 @@ func _on_SoundTimer_timeout():
 
 func _on_Area2D_area_entered(area):
 	if area.name == "BlastWave":
+		var shell:Node = area.get_parent().get_parent()
+		shell.connect("explode", self, "blast_wave_damage")
 		inBlastWave = true
 	if area.name == "Shrapnel":
+		var shell:Node = area.get_parent().get_parent()
+		shell.connect("explode", self, "shrapnel_damage")
 		inShrapnel = true
 
-func gotBlasted():
+func blast_wave_damage():
 	if inBlastWave == true:
 		$Control/CenterContainer/LifePoints.lifePoints -= 9
 		inBlastWave = false
+
+func shrapnel_damage():
 	if inShrapnel == true:
 		$Control/CenterContainer/LifePoints.lifePoints -= 6
 		inShrapnel = false
+	

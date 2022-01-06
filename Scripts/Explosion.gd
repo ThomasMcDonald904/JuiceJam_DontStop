@@ -23,3 +23,13 @@ func _on_Shell_explode():
 	$PrincipalExplosion.emitting = true
 	$BlastWave/CollisionShape2D.set_deferred("disabled", false)
 	$Shrapnel/CollisionShape2D.set_deferred("disabled", false)
+	$CollisionKillTimer.start()
+	$FxKillTimer.start()
+
+func _on_FxKillTimer_timeout():
+	queue_free()
+
+
+func _on_CollisionKillTimer_timeout():
+	$BlastWave/CollisionShape2D.set_deferred("disabled", true)
+	$Shrapnel/CollisionShape2D.set_deferred("disabled", true)
