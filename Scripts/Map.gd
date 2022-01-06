@@ -6,7 +6,7 @@ signal GoToNextStation
 #Change the place holder "LevelName" to the path to the scene you want to change to
 var stations = [["NoSceneHere", 0], ["res://Levels/Main.tscn", 295.04], ["LevelName", 727.78], ["LevelName", 1180.18], ["LevelName", 1593.24]]
 #Change this to change at which station the trains starts at
-var startingStation = 3
+var startingStation = 0
 var nextStation = startingStation + 1
 #Change this to change how long the train movement takes
 var TrainTime = 4

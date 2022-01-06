@@ -7,7 +7,8 @@ var rng = RandomNumberGenerator.new()
 var waitForTimer = false
 var done = false
 var wantedPosition = 1445
-
+var inBlastWave = false
+var inShrapnel = false
 func _ready():
 	rng.randomize()
 	wantedPosition += rng.randi_range(0, 100)
@@ -47,4 +48,15 @@ func _on_SoundTimer_timeout():
 
 
 func _on_Area2D_area_entered(area):
-	pass
+	if area.name == "BlastWave":
+		inBlastWave = true
+	if area.name == "Shrapnel":
+		inShrapnel = true
+
+func gotBlasted():
+	if inBlastWave == true:
+		$Control/CenterContainer/LifePoints.lifePoints -= 9
+		inBlastWave = false
+	if inShrapnel == true:
+		$Control/CenterContainer/LifePoints.lifePoints -= 6
+		inShrapnel = false

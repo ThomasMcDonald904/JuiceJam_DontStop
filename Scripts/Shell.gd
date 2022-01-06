@@ -6,7 +6,8 @@ extends RigidBody2D
 # var b = "text"
 var player: Node
 onready var explosionNode = get_node("Explosion")
-
+onready var Enemy = get_tree().get_root().get_node("Main/Enemy")
+onready var HeavyEnemy = get_tree().get_root().get_node("Main/HeavyEnemy")
 signal explode
 
 # Called when the node enters the scene tree for the first time.
@@ -21,6 +22,8 @@ func _physics_process(delta):
 
 
 func _on_Shell_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	connect("explode", Enemy, "gotBlasted")
+	connect("explode", HeavyEnemy, "gotBlasted")
 	emit_signal("explode")
 	disconnect("explode", explosionNode, "_on_Shell_explode")
 	#var cameraNode = $Camera2D

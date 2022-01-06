@@ -5,7 +5,8 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=3]
 [ext_resource path="res://Assets/kenney_prototypetextures/PNG/Purple/texture_10.png" type="Texture" id=5]
 [ext_resource path="res://Assets/kenney_prototypetextures/PNG/Purple/texture_09.png" type="Texture" id=6]
-[ext_resource path="res://Characters/MachineGun.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/MachineGun.gd" type="Script" id=7]
+
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 96, 32 )

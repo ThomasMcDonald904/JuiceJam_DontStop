@@ -6,6 +6,8 @@ var bullet = preload("res://Props/Bullet.tscn")
 var rng = RandomNumberGenerator.new()
 var waitForTimer = false
 var done = false
+var inBlastWave = false
+var inShrapnel = false
 
 func _physics_process(delta):
 	if position.x >= 1301:
@@ -43,4 +45,15 @@ func _on_SoundTimer_timeout():
 
 
 func _on_Area2D_area_entered(area):
-	print("take cover !!!")
+	if area.name == "BlastWave":
+		inBlastWave = true
+	if area.name == "Shrapnel":
+		inShrapnel = true
+
+func gotBlasted():
+	if inBlastWave == true:
+		$Control/CenterContainer/LifePoints.lifePoints -= 9
+		inBlastWave = false
+	if inShrapnel == true:
+		$Control/CenterContainer/LifePoints.lifePoints -= 6
+		inShrapnel = false

@@ -21,5 +21,5 @@ func _on_Shell_explode():
 	$Explosion2.emitting = true
 	$Explosion3.emitting = true
 	$PrincipalExplosion.emitting = true
-	$BlastWave/CollisionShape2D.disabled = false
-	$Shrapnel/CollisionShape2D.disabled = false
+	$BlastWave/CollisionShape2D.set_deferred("disabled", false)
+	$Shrapnel/CollisionShape2D.set_deferred("disabled", false)
