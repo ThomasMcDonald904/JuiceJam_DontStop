@@ -22,7 +22,6 @@ func _ready():
 
 
 func _on_ElevationWheel_wheel_turned(value):
-	print(value)
 	elevation = value
 	emit_signal("elevation_changed", elevation)
 	readout.text = "%2.2f°" % elevation

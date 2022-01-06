@@ -26,8 +26,25 @@ func _on_Timer_timeout():
 	rng.randomize()
 	var bullet_instance = bullet.instance()
 	add_child(bullet_instance)
+	$MuzzleFlash/SoundTimer.wait_time = $MuzzleFlash/FireSound.get_stream().get_length()
+	$MuzzleFlash.visible = true
+	$MuzzleFlash/FireSound.play()
+	$MuzzleFlash/SoundTimer.start()
+	$MuzzleFlash/MuzzleFlashTimer.start()
 	done = false
 
 
+func _on_MuzzleFlashTimer_timeout():
+	$MuzzleFlash.visible = false
+
+
+func _on_FireSound_finished():
+	$MuzzleFlash/FireSound.stop()
+
+
+func _on_SoundTimer_timeout():
+	$MuzzleFlash/FireSound.stop()
+
+
 func _on_Area2D_area_entered(area):
-	pass # Replace with function body.
+	pass
