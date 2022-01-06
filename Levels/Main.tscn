@@ -41,7 +41,7 @@ position = Vector2( 396, 8 )
 texture = ExtResource( 16 )
 
 [node name="Sprite4" type="Sprite" parent="Node2D2"]
-position = Vector2( 630, -64 )
+position = Vector2( -1069, -64 )
 texture = ExtResource( 5 )
 
 [node name="Sprite3" type="Sprite" parent="Node2D2"]

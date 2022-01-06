@@ -1,0 +1,147 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/saint_martyr/saintmartyr.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice frames/frame1_c2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice buttons/button_c2_normal.png" type="Texture" id=3]
+[ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice buttons/button_c2_pressed.png" type="Texture" id=4]
+[ext_resource path="res://Assets/BackgroundMainMenu.png" type="Texture" id=5]
+[ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice buttons/button_c2_mouseover.png" type="Texture" id=6]
+[ext_resource path="res://GUI/MainMenu.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 120
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+content_margin_left = 16.0
+content_margin_right = 16.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 5.0
+margin_bottom = 5.0
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+extra_spacing_top = 5
+extra_spacing_bottom = 5
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 9.0
+margin_right = 9.0
+margin_top = 14.0
+margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id=5]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 9.0
+margin_right = 9.0
+margin_top = 14.0
+margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id=6]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 9.0
+margin_right = 9.0
+margin_top = 14.0
+margin_bottom = 14.0
+
+[node name="MainMenu" type="Node"]
+script = ExtResource( 7 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -256.0
+margin_right = 256.0
+margin_bottom = 512.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+margin_left = 542.0
+margin_top = 393.0
+margin_right = 1377.0
+margin_bottom = 687.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+margin_right = 835.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 1 )
+text = "With Artillery, War is made"
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+margin_left = 353.0
+margin_top = 132.0
+margin_right = 481.0
+margin_bottom = 294.0
+size_flags_horizontal = 4
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer"]
+margin_left = 16.0
+margin_top = 5.0
+margin_right = 112.0
+margin_bottom = 157.0
+
+[node name="StartButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_right = 96.0
+margin_bottom = 74.0
+focus_mode = 0
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+enabled_focus_mode = 0
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 78.0
+margin_right = 96.0
+margin_bottom = 152.0
+focus_mode = 0
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+enabled_focus_mode = 0
+text = "Quit"
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
