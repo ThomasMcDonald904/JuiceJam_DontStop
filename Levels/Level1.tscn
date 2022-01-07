@@ -5,8 +5,5 @@
 [node name="Level1" instance=ExtResource( 1 )]
 kill_target_paths = [ NodePath("HeavyEnemy") ]
 
-[connection signal="elevation_changed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" to="Player" method="_on_ElevationControl_elevation_changed"]
-[connection signal="pressed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/PanelContainer/FireButton" to="Player" method="_on_FireButton_pressed"]
-
 [editable path="CanvasLayer/GUI"]
 [editable path="CanvasLayer/LevelEndSequence/RadioMessage"]
