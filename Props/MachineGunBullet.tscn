@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/MachineGunBullet.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 2, 1 )
+extents = Vector2( 4, 4 )
 
 [sub_resource type="CanvasItemMaterial" id=2]
 
@@ -19,5 +19,4 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 2 )
 position = Vector2( 2.38419e-07, 0 )
-scale = Vector2( 2.58333, 1.72222 )
 texture = ExtResource( 1 )

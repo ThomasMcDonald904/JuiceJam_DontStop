@@ -205,6 +205,7 @@ shape = SubResource( 3 )
 [node name="MachineGunHead" type="Node2D" parent="Carriage/MachineGun"]
 position = Vector2( 77, 12 )
 script = ExtResource( 7 )
+rate_of_fire = 8
 
 [node name="BarrelHolder" type="Sprite" parent="Carriage/MachineGun/MachineGunHead"]
 scale = Vector2( 0.010498, 0.00979814 )
