@@ -357,6 +357,7 @@ smoothing_enabled = true
 position = Vector2( 96, 1040 )
 ground_height_node_path = NodePath("../GroundHeightNode")
 maxHealthPoints = 25
+can_reload = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 12 )
@@ -382,6 +383,8 @@ position = Vector2( 1500, 1002 )
 [connection signal="pressed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/PanelContainer/FireButton" to="Player" method="_on_FireButton_pressed"]
 [connection signal="return_to_map" from="CanvasLayer/LevelEndSequence" to="." method="_on_LevelEndSequence_return_to_map"]
 [connection signal="life_changed" from="Player" to="CanvasLayer/GUI" method="_on_Player_life_changed"]
+[connection signal="reloaded" from="Player" to="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" method="_on_Player_reloaded"]
+[connection signal="reloading" from="Player" to="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" method="_on_Player_reloading"]
 [connection signal="shell_exploded" from="Player" to="View" method="_on_Player_shell_exploded"]
 [connection signal="shell_fired" from="Player" to="View" method="_on_Player_shell_fired"]
 [connection signal="died" from="HeavyEnemy" to="." method="_on_Enemy_died"]

@@ -16,9 +16,14 @@ var shellInstance = null
 var shellExploded = false
 var shell: PackedScene = preload("res://Props/Shell.tscn")
 
+export var reloading = false
+export var can_reload = true
+
 signal life_changed(value)
 signal shell_fired(shell)
 signal shell_exploded
+signal reloading
+signal reloaded
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
@@ -39,23 +44,31 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_ElevationControl_elevation_changed(value):
-	elevationDegrees = value
-	elevationNode.rotation_degrees = -elevationDegrees
+	if not reloading:
+		elevationDegrees = value
+		elevationNode.rotation_degrees = -elevationDegrees
 
+func _process(delta):
+	if reloading && can_reload:
+		var reload_animation: Animation = $ReloadSequence/SequenceCoordinator.get_animation("Reload")
+		reload_animation.track_set_key_value(1, 0, elevationNode.rotation_degrees)
+		$ReloadSequence/SequenceCoordinator.play("Reload")
+		emit_signal("reloading")
 
 func _on_FireButton_pressed():
+	if not reloading:
+		shellExploded = false
+		shellInstance = shell.instance()
+		shellInstance.ground_height_node = ground_height_node
+		shellInstance.global_position = barrelMouthNode.global_position
+		shellInstance.rotation = barrelMouthNode.rotation
+		shellInstance.linear_velocity = Vector2(500*propellantCharge,0).rotated(deg2rad(-elevationDegrees))
+		get_tree().get_root().add_child(shellInstance)
+		emit_signal("shell_fired", shellInstance)
+		shellInstance.connect("explode", self, "_on_shell_exploded")
+		shellInstance.player = self
+		reloading = true
 	
-	shellExploded = false
-	shellInstance = shell.instance()
-	shellInstance.ground_height_node = ground_height_node
-	shellInstance.global_position = barrelMouthNode.global_position
-	shellInstance.rotation = barrelMouthNode.rotation
-	shellInstance.linear_velocity = Vector2(500*propellantCharge,0).rotated(deg2rad(-elevationDegrees))
-	get_tree().get_root().add_child(shellInstance)
-	emit_signal("shell_fired", shellInstance)
-	shellInstance.connect("explode", self, "_on_shell_exploded")
-	shellInstance.player = self
-
 
 func _on_GUI_propellant_added():
 	propellantCharge += 1
@@ -66,4 +79,10 @@ func _on_GUI_propellant_removed():
 
 
 func _on_GUI_use_free_view():
+	pass # Replace with function body.
+
+
+func _on_SequenceCoordinator_animation_finished(anim_name):
+	if anim_name == "Reload":
+		$ReloadSequence/AnimationPlayer.play("RetractPusher")
 	pass # Replace with function body.

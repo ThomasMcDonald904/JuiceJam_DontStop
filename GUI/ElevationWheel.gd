@@ -11,6 +11,7 @@ var clicked = false
 var min_elevation = 0
 var max_elevation = 0
 signal wheel_turned(value)
+var locked = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	min_elevation = get_node("../..").min_elevation
@@ -20,6 +21,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if locked:
+		return
 	if clicked:
 		var mousePos = get_viewport().get_mouse_position()
 		var currentDragDistance = (clickPoint-mousePos).length() * sign(mousePos.x - clickPoint.x) * -1*delta
@@ -28,9 +31,10 @@ func _process(delta):
 			emit_signal("wheel_turned", dragDistance)
 			rect_rotation = -dragDistance
 			#clickPoint = get_viewport().get_mouse_position()
-	pass
 
 func _on_ElevationWheel_gui_input(event: InputEvent):
+	if locked:
+		return
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
 			if event.pressed == true:
@@ -38,4 +42,3 @@ func _on_ElevationWheel_gui_input(event: InputEvent):
 				clicked = true
 			else:
 				clicked = false
-	pass # Replace with function body.
