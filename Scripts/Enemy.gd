@@ -8,6 +8,8 @@ var waitForTimer = false
 var done = false
 var inBlastWave = false
 var inShrapnel = false
+export var life_points = 15
+signal died(id)
 
 func _physics_process(delta):
 	if position.x >= 1301:
@@ -17,6 +19,7 @@ func _physics_process(delta):
 			$Timer.wait_time = 2
 			$Timer.start()
 			done = true
+	pass
 
 
 func _on_Timer_timeout():
@@ -29,6 +32,7 @@ func _on_Timer_timeout():
 	$MuzzleFlash/SoundTimer.start()
 	$MuzzleFlash/MuzzleFlashTimer.start()
 	done = false
+	pass
 
 
 
@@ -53,13 +57,23 @@ func _on_Area2D_area_entered(area):
 		var shell:Node = area.get_parent().get_parent()
 		shell.connect("explode", self, "shrapnel_damage")
 		inShrapnel = true
+	pass
 
 func blast_wave_damage():
 	if inBlastWave == true:
-		$Control/CenterContainer/LifePoints.lifePoints -= 9
+		life_points -= 9
+		$Control/CenterContainer/LifePoints.text = str(life_points)
 		inBlastWave = false
+		if life_points <= 0:
+			emit_signal("died", get_instance_id())
+			queue_free()
+	pass
 
 func shrapnel_damage():
 	if inShrapnel == true:
-		$Control/CenterContainer/LifePoints.lifePoints -= 6
-		inShrapnel = false
+		life_points -= 6
+		$Control/CenterContainer/LifePoints.text = str(life_points)
+		if life_points <= 0:
+			emit_signal("died", get_instance_id())
+			queue_free()
+	pass

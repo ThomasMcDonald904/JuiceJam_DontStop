@@ -5,7 +5,8 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
-onready var player = get_node("../Player")
+export(NodePath) var player_node_path = ""
+onready var player: Node2D = get_node(player_node_path)
 enum VIEWS {FREE_VIEW, PLAYER_VIEW, SHELL_VIEW}
 var current_viewmode = VIEWS.PLAYER_VIEW
 var move_speed = 500
@@ -15,7 +16,6 @@ export var player_view_offset = 500
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#_on_GUI_use_player_view()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -35,6 +35,10 @@ window/size/height=1080
 window/size/resizable=false
 window/size/always_on_top=true
 
+[global]
+
+clear=false
+
 [input]
 
 machineGunShoot={
@@ -76,4 +80,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0.337255, 0.701961, 0.752941, 1 )
 environment/default_environment="res://default_env.tres"

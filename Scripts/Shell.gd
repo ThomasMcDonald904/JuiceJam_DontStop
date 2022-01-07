@@ -6,7 +6,7 @@ extends RigidBody2D
 # var b = "text"
 var player: Node
 onready var explosionNode:Node2D = get_node("Explosion")
-onready var ground_height_node = get_tree().get_root().get_node("Main/GroundHeightNode")
+var ground_height_node
 onready var blast_wave = $Explosion/BlastWave
 onready var shrapnel = $Explosion/Shrapnel
 signal explode

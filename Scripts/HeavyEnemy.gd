@@ -9,6 +9,9 @@ var done = false
 var wantedPosition = 1445
 var inBlastWave = false
 var inShrapnel = false
+export var life_points = 15
+signal died(id)
+
 func _ready():
 	rng.randomize()
 	wantedPosition += rng.randi_range(0, 100)
@@ -26,6 +29,7 @@ func _physics_process(delta):
 func _on_Timer_timeout():
 	rng.randomize()
 	var bullet_instance = bullet.instance()
+	bullet_instance.muzzle = $Muzzle
 	add_child(bullet_instance)
 	$MuzzleFlash/SoundTimer.wait_time = $MuzzleFlash/FireSound.get_stream().get_length()
 	$MuzzleFlash.visible = true
@@ -59,11 +63,19 @@ func _on_Area2D_area_entered(area):
 
 func blast_wave_damage():
 	if inBlastWave == true:
-		$Control/CenterContainer/LifePoints.lifePoints -= 9
+		life_points -= 9
 		inBlastWave = false
+		$Control/CenterContainer/LifePoints.text = str(life_points)
+		inBlastWave = false
+		if life_points <= 0:
+			emit_signal("died", get_instance_id())
+			queue_free()
 
 func shrapnel_damage():
 	if inShrapnel == true:
-		$Control/CenterContainer/LifePoints.lifePoints -= 6
-		inShrapnel = false
+		life_points -= 6
+		$Control/CenterContainer/LifePoints.text = str(life_points)
+		if life_points <= 0:
+			emit_signal("died", get_instance_id())
+			queue_free()
 	

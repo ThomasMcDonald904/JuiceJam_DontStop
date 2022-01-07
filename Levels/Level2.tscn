@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Levels/LevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Side-Scroller_Tileset6_v1_1/objects/house2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Side-Scroller_Tileset6_v1_1/objects/house1.png" type="Texture" id=3]
+
+[node name="Level2" instance=ExtResource( 1 )]
+kill_target_paths = [ NodePath("HeavyEnemy") ]
+
+[node name="RichTextLabel" parent="CanvasLayer/LevelEndSequence/RadioMessage/Dialog" index="0"]
+bbcode_text = "Congratulations! You beat the second area! This one was tricky."
+text = "Congratulations! You beat the second area! This one was tricky."
+
+[node name="House5" type="Sprite" parent="." index="6"]
+modulate = Color( 0.415686, 0.415686, 0.415686, 1 )
+position = Vector2( 903, 976 )
+texture = ExtResource( 3 )
+
+[node name="House6" type="Sprite" parent="." index="7"]
+modulate = Color( 0.415686, 0.415686, 0.415686, 1 )
+position = Vector2( 1315, 976 )
+texture = ExtResource( 3 )
+
+[node name="House2" type="Sprite" parent="." index="8"]
+modulate = Color( 0.568627, 0.568627, 0.568627, 1 )
+position = Vector2( 990, 1016 )
+texture = ExtResource( 2 )
+
+[node name="House" type="Sprite" parent="." index="9"]
+position = Vector2( 1136, 1016 )
+texture = ExtResource( 2 )
+
+[node name="House3" type="Sprite" parent="." index="10"]
+position = Vector2( 809, 1016 )
+texture = ExtResource( 2 )
+
+[node name="House4" type="Sprite" parent="." index="11"]
+position = Vector2( 1402, 1016 )
+texture = ExtResource( 2 )
+
+[connection signal="elevation_changed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" to="Player" method="_on_ElevationControl_elevation_changed"]
+[connection signal="pressed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/PanelContainer/FireButton" to="Player" method="_on_FireButton_pressed"]
+
+[editable path="CanvasLayer/GUI"]
+[editable path="CanvasLayer/LevelEndSequence/RadioMessage"]

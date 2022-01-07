@@ -19,6 +19,7 @@ func _ready():
 
 func _on_StartButton_pressed():
 	PlayerVariables.player_name = $CanvasLayer/CenterContainer/NameEntry/HBoxContainer/NameEnter.text
+	PlayerVariables.current_station = 0
 	get_tree().change_scene_to(intro_scene)
 
 

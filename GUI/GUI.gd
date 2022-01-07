@@ -22,7 +22,11 @@ func _ready():
 		$HBoxContainer/Status/LifeAndAmmo/Bar/Gauge.value = animated_health
 		$HBoxContainer/Status/LifeAndAmmo/Bar/Count/Background/Number.text = String(animated_health)
 	var playerButton = get_node("HBoxContainer/ViewSelect/PlayerView")
-	playerButton.pressed = true
+	playerButton.set_pressed_no_signal(true)
+	var shellViewButton = get_node("HBoxContainer/ViewSelect/ShellView")
+	shellViewButton.set_pressed_no_signal(false)
+	var rangeFinderButton = get_node("HBoxContainer/ViewSelect/RangeFinderView")
+	rangeFinderButton.set_pressed_no_signal(false)
 	pass # Replace with function body.
 
 

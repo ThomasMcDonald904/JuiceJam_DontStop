@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/Side-Scroller_Tileset5_v1_0/parallax/simplified/background_mountains2_all.png" type="Texture" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -17,43 +17,122 @@
 [ext_resource path="res://Assets/Side-Scroller_Tileset5_v1_0/objects/windmill_railing_foreground.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Side-Scroller_Tileset6_v1_1/objects/house2.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Side-Scroller_Tileset5_v1_0/objects/windmill_wings.png" type="Texture" id=17]
+[ext_resource path="res://Scripts/LevelStatus.gd" type="Script" id=18]
+[ext_resource path="res://Scripts/LevelEndSequence.gd" type="Script" id=19]
+[ext_resource path="res://GUI/RadioMessage.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Assets/input-prompts-pixel-16/Tilemap/tilemap_packed.png" type="Texture" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.2843, 1.68518 )
 
-[node name="Main" type="Node"]
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 21 )
+region = Rect2( 128, 32, 16, 16 )
 
-[node name="Node2D" type="Node2D" parent="."]
+[sub_resource type="Animation" id=2]
+resource_name = "FadeToBlack"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "return_to_map" ],
+"method": "emit_signal"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[node name="Main" type="Node"]
+script = ExtResource( 18 )
+kill_target_paths = [ NodePath("Enemy"), NodePath("HeavyEnemy") ]
+
+[node name="Decore" type="Node2D" parent="."]
 position = Vector2( 1148, 1001 )
 
-[node name="Sprite" type="Sprite" parent="Node2D"]
+[node name="Sprite" type="Sprite" parent="Decore"]
 texture = ExtResource( 12 )
 
-[node name="Node2D2" type="Node2D" parent="."]
+[node name="Decore2" type="Node2D" parent="."]
 position = Vector2( 1130, 1000 )
 
-[node name="Sprite" type="Sprite" parent="Node2D2"]
+[node name="Sprite" type="Sprite" parent="Decore2"]
 position = Vector2( 189, -31 )
 texture = ExtResource( 13 )
 
-[node name="Sprite2" type="Sprite" parent="Node2D2"]
+[node name="Sprite2" type="Sprite" parent="Decore2"]
 position = Vector2( 396, 8 )
 texture = ExtResource( 16 )
 
-[node name="Sprite4" type="Sprite" parent="Node2D2"]
+[node name="Sprite4" type="Sprite" parent="Decore2"]
 position = Vector2( -1069, -64 )
 texture = ExtResource( 5 )
 
-[node name="Sprite3" type="Sprite" parent="Node2D2"]
+[node name="Sprite3" type="Sprite" parent="Decore2"]
 position = Vector2( -217, -55 )
 texture = ExtResource( 14 )
 
-[node name="Sprite4" type="Sprite" parent="Node2D2/Sprite3"]
+[node name="Sprite4" type="Sprite" parent="Decore2/Sprite3"]
 position = Vector2( 0, -81 )
 rotation = -0.949459
 texture = ExtResource( 17 )
 
-[node name="Sprite5" type="Sprite" parent="Node2D2/Sprite3"]
+[node name="Sprite5" type="Sprite" parent="Decore2/Sprite3"]
 position = Vector2( 0, 50 )
 texture = ExtResource( 15 )
 
@@ -161,12 +240,58 @@ margin_left = 1830.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 
+[node name="LevelEndSequence" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RadioMessage" parent="CanvasLayer/LevelEndSequence" instance=ExtResource( 20 )]
+margin_left = -310.0
+margin_top = 462.0
+margin_right = -15.0
+margin_bottom = 688.0
+auto_play_message = true
+
+[node name="ClickPrompt" parent="CanvasLayer/LevelEndSequence/RadioMessage/TextureButton" index="2"]
+texture = SubResource( 5 )
+
+[node name="TossTarget" parent="CanvasLayer/LevelEndSequence/RadioMessage" index="1"]
+margin_left = 710.0
+margin_top = 0.0
+margin_right = 750.0
+margin_bottom = 40.0
+rect_rotation = 0.0
+
+[node name="RichTextLabel" parent="CanvasLayer/LevelEndSequence/RadioMessage/Dialog" index="0"]
+bbcode_text = "Congratulations! You beat the first area!"
+text = "Congratulations! You beat the first area!"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/LevelEndSequence"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/LevelEndSequence"]
+anims/FadeToBlack = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
 [node name="HeavyEnemy" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2012.74, 994 )
 
 [node name="GroundHeightNode" type="Node2D" parent="."]
 position = Vector2( 828, 1061 )
 
+[connection signal="level_end" from="." to="CanvasLayer/LevelEndSequence" method="_on_Main_level_end"]
+[connection signal="died" from="Enemy" to="." method="_on_Enemy_died"]
 [connection signal="life_changed" from="Player" to="CanvasLayer/GUI" method="_on_Player_life_changed"]
 [connection signal="shell_exploded" from="Player" to="View" method="_on_Player_shell_exploded"]
 [connection signal="shell_fired" from="Player" to="View" method="_on_Player_shell_fired"]
@@ -177,5 +302,9 @@ position = Vector2( 828, 1061 )
 [connection signal="use_shell_view" from="CanvasLayer/GUI" to="View" method="_on_GUI_use_shell_view"]
 [connection signal="elevation_changed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" to="Player" method="_on_ElevationControl_elevation_changed"]
 [connection signal="pressed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/PanelContainer/FireButton" to="Player" method="_on_FireButton_pressed"]
+[connection signal="return_to_map" from="CanvasLayer/LevelEndSequence" to="." method="_on_return_to_map"]
+[connection signal="message_done" from="CanvasLayer/LevelEndSequence/RadioMessage" to="CanvasLayer/LevelEndSequence" method="_on_RadioMessage_message_done"]
+[connection signal="died" from="HeavyEnemy" to="." method="_on_Enemy_died"]
 
 [editable path="CanvasLayer/GUI"]
+[editable path="CanvasLayer/LevelEndSequence/RadioMessage"]

@@ -1,0 +1,390 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Scripts/LevelStatus.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Side-Scroller_Tileset5_v1_0/parallax/simplified/background_mountains2_all.png" type="Texture" id=2]
+[ext_resource path="res://Assets/input-prompts-pixel-16/Tilemap/tilemap_packed.png" type="Texture" id=3]
+[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Side-Scroller_Tileset5_v1_0/parallax/simplified/background_fields1_all.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/LevelEndSequence.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Side-Scroller_Tileset5_v1_0/parallax/background_fields2_04_loopable.png" type="Texture" id=7]
+[ext_resource path="res://Characters/HeavyEnemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://GUI/RadioMessage.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/View.gd" type="Script" id=10]
+[ext_resource path="res://Characters/Player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Environment/road_tileset.tres" type="TileSet" id=12]
+[ext_resource path="res://Assets/Side-Scroller_Tileset6_v1_1/objects/church.png" type="Texture" id=13]
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 128, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 128, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 144, 32, 16, 16 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "ClickPrompt"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ClickPrompt:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ SubResource( 5 ), SubResource( 6 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../TextureButton/Speaker:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.4, 0.45, 0.5, 0.55, 0.75, 0.8, 0.85, 0.9, 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.5, 1.55, 1.6, 1.65, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../NextItemTimer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "message_is_done"
+} ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RichTextLabel:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("../TextureButton/Speaker:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "FadeToBlack"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "return_to_map" ],
+"method": "emit_signal"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[node name="Node" type="Node"]
+script = ExtResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( 0, 936 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Mountains"]
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 96 )
+
+[node name="FieldsFar" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+motion_scale = Vector2( 0.4, 0.4 )
+motion_offset = Vector2( 0, 968 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/FieldsFar"]
+texture = ExtResource( 5 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 128 )
+
+[node name="FieldsNear" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+motion_scale = Vector2( 0.6, 0.6 )
+motion_offset = Vector2( 0, 1025 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/FieldsNear"]
+texture = ExtResource( 7 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 48 )
+
+[node name="TrainStation" type="Sprite" parent="."]
+position = Vector2( 123, 946 )
+texture = ExtResource( 13 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource( 4 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="HBoxContainer" parent="CanvasLayer/GUI" index="0"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="Status" parent="CanvasLayer/GUI/HBoxContainer" index="0"]
+margin_right = 1826.0
+margin_bottom = 1080.0
+
+[node name="LifeAndAmmo" parent="CanvasLayer/GUI/HBoxContainer/Status" index="0"]
+margin_bottom = 1080.0
+
+[node name="ViewSelect" parent="CanvasLayer/GUI/HBoxContainer" index="1"]
+margin_left = 1830.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="LevelEndSequence" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RadioMessage" parent="CanvasLayer/LevelEndSequence" instance=ExtResource( 9 )]
+margin_left = -310.0
+margin_top = 462.0
+margin_right = -15.0
+margin_bottom = 688.0
+auto_play_message = true
+click_to_continue = true
+next_item_path = NodePath("..")
+
+[node name="ClickPrompt" parent="CanvasLayer/LevelEndSequence/RadioMessage/TextureButton" index="2"]
+texture = SubResource( 7 )
+
+[node name="AnimationPlayer" parent="CanvasLayer/LevelEndSequence/RadioMessage/TextureButton" index="3"]
+anims/GUIClickPrompt = SubResource( 8 )
+
+[node name="TossTarget" parent="CanvasLayer/LevelEndSequence/RadioMessage" index="1"]
+margin_left = 710.0
+margin_top = 0.0
+margin_right = 750.0
+margin_bottom = 40.0
+rect_rotation = 0.0
+
+[node name="NextItemTimer" parent="CanvasLayer/LevelEndSequence/RadioMessage" index="2"]
+wait_time = 3.0
+
+[node name="RichTextLabel" parent="CanvasLayer/LevelEndSequence/RadioMessage/Dialog" index="0"]
+bbcode_text = "Congratulations! You beat the first area!"
+text = "Congratulations! You beat the first area!"
+
+[node name="VScrollBar2" type="VScrollBar" parent="CanvasLayer/LevelEndSequence/RadioMessage/Dialog/RichTextLabel" index="0"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+step = 1.0
+
+[node name="VScrollBar3" type="VScrollBar" parent="CanvasLayer/LevelEndSequence/RadioMessage/Dialog/RichTextLabel" index="1"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+step = 1.0
+
+[node name="AnimationPlayer" parent="CanvasLayer/LevelEndSequence/RadioMessage/Dialog" index="1"]
+anims/IntroDialogAnimation = SubResource( 9 )
+anims/RESET = SubResource( 10 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/LevelEndSequence"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/LevelEndSequence"]
+anims/FadeToBlack = SubResource( 11 )
+anims/RESET = SubResource( 12 )
+
+[node name="View" type="Node2D" parent="."]
+position = Vector2( -278, -115 )
+script = ExtResource( 10 )
+player_node_path = NodePath("../Player")
+
+[node name="Camera2D" type="Camera2D" parent="View"]
+current = true
+limit_left = 0
+limit_top = 0
+limit_bottom = 1300
+smoothing_enabled = true
+
+[node name="Player" parent="." instance=ExtResource( 11 )]
+position = Vector2( 96, 1040 )
+ground_height_node_path = NodePath("../GroundHeightNode")
+maxHealthPoints = 25
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 12 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 8
+collision_mask = 2
+format = 1
+tile_data = PoolIntArray( 4390912, 1, 0, 4390913, 1, 0, 4390914, 1, 0, 4390915, 1, 0, 4390916, 1, 0, 4390917, 1, 0, 4390918, 1, 0, 4390919, 1, 0, 4390920, 1, 0, 4390921, 1, 0, 4390922, 1, 0, 4390923, 1, 0, 4390924, 1, 0, 4390925, 1, 0, 4390926, 1, 0, 4390927, 1, 0, 4390928, 1, 0, 4390929, 1, 0, 4390930, 1, 0, 4390931, 1, 0, 4390932, 1, 0, 4390933, 1, 0, 4390934, 1, 0, 4390935, 1, 0, 4390936, 1, 0, 4390937, 1, 0, 4390938, 1, 0, 4390939, 1, 0, 4390940, 1, 0, 4390941, 1, 0, 4390942, 1, 0, 4390943, 1, 0, 4390944, 1, 0, 4390945, 1, 0, 4390946, 1, 0, 4390947, 1, 0, 4390948, 1, 0, 4390949, 1, 0, 4390950, 1, 0, 4390951, 1, 0, 4390952, 1, 0, 4390953, 1, 0, 4390954, 1, 0, 4390955, 1, 0, 4390956, 1, 0, 4390957, 1, 0, 4390958, 1, 0, 4390959, 1, 0, 4390960, 1, 0, 4390961, 1, 0, 4390962, 1, 0, 4390963, 1, 0, 4390964, 1, 0, 4390965, 1, 0, 4390966, 1, 0, 4390967, 1, 0, 4390968, 1, 0, 4390969, 1, 0, 4390970, 1, 0, 4390971, 1, 0, 4390972, 1, 0, 4390973, 1, 0, 4390974, 1, 0, 4390975, 1, 0, 4390976, 1, 0, 4390977, 1, 0, 4390978, 1, 0, 4390979, 1, 0, 4390980, 1, 0, 4390981, 1, 0, 4390982, 1, 0, 4390983, 1, 0, 4390984, 1, 0, 4390985, 1, 0, 4390986, 1, 0, 4390987, 1, 0, 4390988, 1, 0, 4390989, 1, 0, 4390990, 1, 0, 4390991, 1, 0, 4390992, 1, 0, 4390993, 1, 0, 4390994, 1, 0, 4390995, 1, 0, 4390996, 1, 0, 4390997, 1, 0, 4390998, 1, 0, 4390999, 1, 0, 4391000, 1, 0, 4391001, 1, 0, 4391002, 1, 0, 4391003, 1, 0, 4391004, 1, 0, 4391005, 1, 0, 4391006, 1, 0, 4391007, 1, 0, 4391008, 1, 0, 4391009, 1, 0, 4391010, 1, 0, 4391011, 1, 0, 4391012, 1, 0, 4391013, 1, 0, 4391014, 1, 0, 4391015, 1, 0, 4391016, 1, 0, 4391017, 1, 0, 4391018, 1, 0, 4391019, 1, 0, 4391020, 1, 0, 4391021, 1, 0, 4391022, 1, 0, 4391023, 1, 0, 4391024, 1, 0, 4391025, 1, 0, 4391026, 1, 0, 4391027, 1, 0, 4391028, 1, 0, 4391029, 1, 0, 4391030, 1, 0, 4391031, 1, 0, 4391032, 1, 0, 4391033, 1, 0, 4391034, 1, 0, 4391035, 1, 0, 4391036, 1, 0, 4391037, 1, 0, 4391038, 1, 0, 4391039, 1, 0, 4391040, 1, 0, 4391041, 1, 0, 4391042, 1, 0, 4391043, 1, 0, 4391044, 1, 0, 4391045, 1, 0, 4391046, 1, 0, 4391047, 1, 0, 4391048, 1, 0, 4391049, 1, 0, 4391050, 1, 0, 4391051, 1, 0, 4391052, 1, 0, 4391053, 1, 0, 4391054, 1, 0, 4391055, 1, 0, 4391056, 1, 0, 4391057, 1, 0, 4391058, 1, 0, 4391059, 1, 0, 4391060, 1, 0, 4391061, 1, 0, 4391062, 1, 0, 4391063, 1, 0, 4391064, 1, 0, 4391065, 1, 0, 4391066, 1, 0, 4391067, 1, 0, 4391068, 1, 0, 4391069, 1, 0, 4391070, 1, 0, 4456448, 2, 0, 4456449, 2, 0, 4456450, 2, 0, 4456451, 2, 0, 4456452, 2, 0, 4456453, 2, 0, 4456454, 2, 0, 4456455, 2, 0, 4456456, 2, 0, 4456457, 2, 0, 4456458, 2, 0, 4456459, 2, 0, 4456460, 2, 0, 4456461, 2, 0, 4456462, 2, 0, 4456463, 2, 0, 4456464, 2, 0, 4456465, 2, 0, 4456466, 2, 0, 4456467, 2, 0, 4456468, 2, 0, 4456469, 2, 0, 4456470, 2, 0, 4456471, 2, 0, 4456472, 2, 0, 4456473, 2, 0, 4456474, 2, 0, 4456475, 2, 0, 4456476, 2, 0, 4456477, 2, 0, 4456478, 2, 0, 4456479, 2, 0, 4456480, 2, 0, 4456481, 2, 0, 4456482, 2, 0, 4456483, 2, 0, 4456484, 2, 0, 4456485, 2, 0, 4456486, 2, 0, 4456487, 2, 0, 4456488, 2, 0, 4456489, 2, 0, 4456490, 2, 0, 4456491, 2, 0, 4456492, 2, 0, 4456493, 2, 0, 4456494, 2, 0, 4456495, 2, 0, 4456496, 2, 0, 4456497, 2, 0, 4456498, 2, 0, 4456499, 2, 0, 4456500, 2, 0, 4456501, 2, 0, 4456502, 2, 0, 4456503, 2, 0, 4456504, 2, 0, 4456505, 2, 0, 4456506, 2, 0, 4456507, 2, 0, 4456508, 2, 0, 4456509, 2, 0, 4456510, 2, 0, 4456511, 2, 0, 4456512, 2, 0, 4456513, 2, 0, 4456514, 2, 0, 4456515, 2, 0, 4456516, 2, 0, 4456517, 2, 0, 4456518, 2, 0, 4456519, 2, 0, 4456520, 2, 0, 4456521, 2, 0, 4456522, 2, 0, 4456523, 2, 0, 4456524, 2, 0, 4456525, 2, 0, 4456526, 2, 0, 4456527, 2, 0, 4456528, 2, 0, 4456529, 2, 0, 4456530, 2, 0, 4456531, 2, 0, 4456532, 2, 0, 4456533, 2, 0, 4456534, 2, 0, 4456535, 2, 0, 4456536, 2, 0, 4456537, 2, 0, 4456538, 2, 0, 4456539, 2, 0, 4456540, 2, 0, 4456541, 2, 0, 4456542, 2, 0, 4456543, 2, 0, 4456544, 2, 0, 4456545, 2, 0, 4456546, 2, 0, 4456547, 2, 0, 4456548, 2, 0, 4456549, 2, 0, 4456550, 2, 0, 4456551, 2, 0, 4456552, 2, 0, 4456553, 2, 0, 4456554, 2, 0, 4456555, 2, 0, 4456556, 2, 0, 4456557, 2, 0, 4456558, 2, 0, 4456559, 2, 0, 4456560, 2, 0, 4456561, 2, 0, 4456562, 2, 0, 4456563, 2, 0, 4456564, 2, 0, 4456565, 2, 0, 4456566, 2, 0, 4456567, 2, 0, 4456568, 2, 0, 4456569, 2, 0, 4456570, 2, 0, 4456571, 2, 0, 4456572, 2, 0, 4456573, 2, 0, 4456574, 2, 0, 4456575, 2, 0, 4456576, 2, 0, 4456577, 2, 0, 4456578, 2, 0, 4456579, 2, 0, 4456580, 2, 0, 4456581, 2, 0, 4456582, 2, 0, 4456583, 2, 0, 4456584, 2, 0, 4456585, 2, 0, 4456586, 2, 0, 4456587, 2, 0, 4456588, 2, 0, 4456589, 2, 0, 4456590, 2, 0, 4456591, 2, 0, 4456592, 2, 0, 4456593, 2, 0, 4456594, 2, 0, 4456595, 2, 0, 4456596, 2, 0, 4456597, 2, 0, 4456598, 2, 0, 4456599, 2, 0, 4456600, 2, 0, 4456601, 2, 0, 4456602, 2, 0, 4456603, 2, 0, 4456604, 2, 0, 4456605, 2, 0, 4456606, 2, 0 )
+
+[node name="GroundHeightNode" type="Node2D" parent="."]
+position = Vector2( 828, 1072 )
+
+[node name="HeavyEnemy" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1500, 1002 )
+
+[connection signal="level_end" from="." to="CanvasLayer/LevelEndSequence" method="_on_level_end"]
+[connection signal="propellant_added" from="CanvasLayer/GUI" to="Player" method="_on_GUI_propellant_added"]
+[connection signal="propellant_removed" from="CanvasLayer/GUI" to="Player" method="_on_GUI_propellant_removed"]
+[connection signal="use_free_view" from="CanvasLayer/GUI" to="View" method="_on_GUI_use_free_view"]
+[connection signal="use_player_view" from="CanvasLayer/GUI" to="View" method="_on_GUI_use_player_view"]
+[connection signal="use_shell_view" from="CanvasLayer/GUI" to="View" method="_on_GUI_use_shell_view"]
+[connection signal="elevation_changed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" to="Player" method="_on_ElevationControl_elevation_changed"]
+[connection signal="pressed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/PanelContainer/FireButton" to="Player" method="_on_FireButton_pressed"]
+[connection signal="return_to_map" from="CanvasLayer/LevelEndSequence" to="." method="_on_LevelEndSequence_return_to_map"]
+[connection signal="life_changed" from="Player" to="CanvasLayer/GUI" method="_on_Player_life_changed"]
+[connection signal="shell_exploded" from="Player" to="View" method="_on_Player_shell_exploded"]
+[connection signal="shell_fired" from="Player" to="View" method="_on_Player_shell_fired"]
+[connection signal="died" from="HeavyEnemy" to="." method="_on_Enemy_died"]
+
+[editable path="CanvasLayer/GUI"]
+[editable path="CanvasLayer/LevelEndSequence/RadioMessage"]
