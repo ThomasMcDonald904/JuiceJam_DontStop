@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var muzzle = get_tree().get_root().get_node("Main/Enemy/Muzzle")
+onready var muzzle = get_node("../Muzzle")
 var speed = 588
 var distanceTravelled = 0
 var distance = 0

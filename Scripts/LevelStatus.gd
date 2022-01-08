@@ -12,9 +12,11 @@ var kill_target_IDs =[]
 signal level_end
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for  node_path in kill_target_paths:
+	for node_path in kill_target_paths:
 		kill_target_IDs.append(get_node(node_path).get_instance_id())
-	pass
+	
+func show_GUI():
+	$CanvasLayer/GUI.visible = true
 
 func _on_Enemy_died(id):
 	kill_target_IDs.erase(id)

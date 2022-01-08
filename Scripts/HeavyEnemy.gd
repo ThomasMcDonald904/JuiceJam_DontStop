@@ -13,6 +13,7 @@ export var life_points = 15
 signal died(id)
 
 func _ready():
+	connect("died", $"..", "_on_Enemy_died")
 	rng.randomize()
 	wantedPosition += rng.randi_range(0, 100)
 

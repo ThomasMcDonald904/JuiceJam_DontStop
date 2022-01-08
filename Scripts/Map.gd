@@ -5,7 +5,7 @@ var start = true
 signal GoToNextStation
 var next_level
 #Change the place holder "LevelName" to the path to the scene you want to change to
-var stations = [["NoSceneHere", 0], ["res://Levels/Level1.tscn", 295.04], ["res://Levels/Level2.tscn", 727.78], ["res://Levels/Level3.tscn", 1180.18], ["res://Levels/Level4.tscn", 1370.86], ["res://Levels/FinalWords.tscn", 1593.24], ]
+var stations = [["NoSceneHere", 0], ["res://Levels/Tutorial.tscn", 295.04], ["res://Levels/Level2.tscn", 727.78], ["res://Levels/Level3.tscn", 1180.18], ["res://Levels/Level4.tscn", 1370.86], ["res://Levels/FinalWords.tscn", 1593.24], ]
 #Change this to change at which station the trains starts at
 
 var nextStation = 0

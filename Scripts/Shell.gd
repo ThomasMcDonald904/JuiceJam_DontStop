@@ -19,7 +19,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	rotation = linear_velocity.angle()
-	blast_wave.global_rotation_degrees = 0;
+	blast_wave.global_rotation_degrees = 0
 	shrapnel.global_rotation_degrees = 0
 	pass
 

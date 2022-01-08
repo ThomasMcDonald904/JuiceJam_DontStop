@@ -34,7 +34,8 @@ func _on_Timer_timeout():
 	done = false
 	pass
 
-
+func _ready():
+	connect("died", $"..", "_on_Enemy_died")
 
 func _on_MuzzleFlashTimer_timeout():
 	$MuzzleFlash.visible = false
