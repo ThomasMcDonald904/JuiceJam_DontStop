@@ -134,7 +134,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 1.7, 12 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ "Just press the arrow to add explosive charge, click and drag the adjusting wheel *cough* virtually of course to adjust the angle and lastly, FIRE!", "How about you try hiting this old dummy tank next. Oh, and these little buttons above me control the view, you can try them out if you want." ]
+"values": [ "Just press the arrow to add explosive charge, click and drag the adjusting wheel *cough* virtually of course to adjust the angle and lastly, FIRE!", "You also have a machine gun for hitting smaller targets(Space). How about you try hiting this old dummy tank next. Oh, and these little buttons above me control the view" ]
 }
 tracks/4/type = "bezier"
 tracks/4/path = NodePath("RichTextLabel:percent_visible")
@@ -278,6 +278,7 @@ position = Vector2( 840, 1008 )
 position = Vector2( 1578, 950 )
 
 [node name="RadioMessageSystem" parent="." index="11" instance=ExtResource( 4 )]
+margin_right = -5.00012
 
 [node name="AnimationPlayer" parent="RadioMessageSystem/Dialog" index="1"]
 anims/BlastWaveHit = SubResource( 9 )

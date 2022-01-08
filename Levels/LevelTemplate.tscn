@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/LevelStatus.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Side-Scroller_Tileset5_v1_0/parallax/simplified/background_mountains2_all.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Side-Scroller_Tileset5_v1_0/parallax/simplified/background_fields1_all.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/LevelEndSequence.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Side-Scroller_Tileset5_v1_0/parallax/background_fields2_04_loopable.png" type="Texture" id=7]
+[ext_resource path="res://Assets/sky.png" type="Texture" id=8]
 [ext_resource path="res://GUI/RadioMessage.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/View.gd" type="Script" id=10]
 [ext_resource path="res://Characters/Player.tscn" type="PackedScene" id=11]
@@ -206,6 +207,10 @@ tracks/1/keys = {
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 8 )
+centered = false
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

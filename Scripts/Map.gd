@@ -10,7 +10,7 @@ var stations = [["NoSceneHere", 0], ["res://Levels/Tutorial.tscn", 295.04], ["re
 
 var nextStation = 0
 #Change this to change how long the train movement takes
-var TrainTime = 6
+var TrainTime = 10
 
 func _ready():
 	nextStation = PlayerVariables.current_station + 1

@@ -42,10 +42,5 @@ texture = ExtResource( 2 )
 [node name="Enemy" parent="." index="13" instance=ExtResource( 4 )]
 position = Vector2( 1807, 1008 )
 
-[connection signal="elevation_changed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" to="Player" method="_on_ElevationControl_elevation_changed"]
-[connection signal="pressed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/PanelContainer/FireButton" to="Player" method="_on_FireButton_pressed"]
-[connection signal="reloaded" from="Player" to="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" method="_on_Player_reloaded"]
-[connection signal="reloading" from="Player" to="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" method="_on_Player_reloading"]
-
 [editable path="CanvasLayer/GUI"]
 [editable path="CanvasLayer/LevelEndSequence/RadioMessage"]
