@@ -8,18 +8,6 @@
 [ext_resource path="res://Assets/kenney_prototypetextures/PNG/Purple/texture_09.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/MachineGun.gd" type="Script" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 92.5, 10.5 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 91.5, 45 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 75.5348, 526.628 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 522.945, 133.565 )
-
 [sub_resource type="Animation" id=5]
 resource_name = "FetchNewShell"
 length = 1.4
@@ -148,10 +136,39 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 92.5, 10.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 91.5, 45 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 75.5348, 526.628 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 522.945, 133.565 )
+
 [node name="Player" type="Node2D"]
 script = ExtResource( 3 )
 healthPoints = 25
-can_reload = false
+
+[node name="ReloadSequence" type="Node2D" parent="."]
+position = Vector2( 1, 0 )
+
+[node name="Reloader" type="Sprite" parent="ReloadSequence"]
+position = Vector2( -64, 0 )
+texture = ExtResource( 4 )
+hframes = 38
+region_rect = Rect2( 0, 0, 2090, 90 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ReloadSequence"]
+anims/FetchNewShell = SubResource( 5 )
+anims/LoadShell = SubResource( 7 )
+anims/RESET = SubResource( 6 )
+anims/RetractPusher = SubResource( 8 )
+
+[node name="SequenceCoordinator" type="AnimationPlayer" parent="ReloadSequence"]
+anims/Reload = SubResource( 10 )
 
 [node name="Elevation" type="Node2D" parent="."]
 position = Vector2( 0, -3 )
@@ -228,22 +245,5 @@ shape = SubResource( 4 )
 [node name="BarrelMuzzle" type="Position2D" parent="Carriage/MachineGun/MachineGunHead"]
 position = Vector2( 45, 0 )
 
-[node name="ReloadSequence" type="Node2D" parent="."]
-
-[node name="Reloader" type="Sprite" parent="ReloadSequence"]
-position = Vector2( -64, 0 )
-texture = ExtResource( 4 )
-hframes = 38
-region_rect = Rect2( 0, 0, 2089, 90 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ReloadSequence"]
-anims/FetchNewShell = SubResource( 5 )
-anims/LoadShell = SubResource( 7 )
-anims/RESET = SubResource( 6 )
-anims/RetractPusher = SubResource( 8 )
-
-[node name="SequenceCoordinator" type="AnimationPlayer" parent="ReloadSequence"]
-anims/Reload = SubResource( 10 )
-
-[connection signal="body_entered" from="Carriage/Sprite/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="animation_finished" from="ReloadSequence/SequenceCoordinator" to="." method="_on_SequenceCoordinator_animation_finished"]
+[connection signal="body_entered" from="Carriage/Sprite/Area2D" to="." method="_on_Area2D_body_entered"]

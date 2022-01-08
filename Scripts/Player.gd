@@ -6,6 +6,7 @@ extends Node2D
 # var b = "text"
 var elevationDegrees = 0.0
 var propellantCharge = 0
+export var propellant_power = 0.5
 export(NodePath) var ground_height_node_path
 onready var ground_height_node = get_node(ground_height_node_path)
 onready var elevationNode = $Elevation
@@ -62,7 +63,7 @@ func _on_FireButton_pressed():
 		shellInstance.ground_height_node = ground_height_node
 		shellInstance.global_position = barrelMouthNode.global_position
 		shellInstance.rotation = barrelMouthNode.rotation
-		shellInstance.linear_velocity = Vector2(500*propellantCharge,0).rotated(deg2rad(-elevationDegrees))
+		shellInstance.linear_velocity = Vector2(500*propellantCharge*propellant_power,0).rotated(deg2rad(-elevationDegrees))
 		get_tree().get_root().add_child(shellInstance)
 		emit_signal("shell_fired", shellInstance)
 		shellInstance.connect("explode", self, "_on_shell_exploded")

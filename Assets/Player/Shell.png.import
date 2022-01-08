@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ForestVillage_tileset03_village_16x16.png-072b17e7a0e41acf5382f6a79fe373c6.stex"
+path="res://.import/Shell.png-8dee9fac1425d5763c2fac6cdfef3019.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Side-Scroller_Tileset6_v1_1/tilesets/ForestVillage_tileset03_village_16x16.png"
-dest_files=[ "res://.import/ForestVillage_tileset03_village_16x16.png-072b17e7a0e41acf5382f6a79fe373c6.stex" ]
+source_file="res://Assets/Player/Shell.png"
+dest_files=[ "res://.import/Shell.png-8dee9fac1425d5763c2fac6cdfef3019.stex" ]
 
 [params]
 
