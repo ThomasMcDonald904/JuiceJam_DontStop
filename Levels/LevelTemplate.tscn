@@ -362,7 +362,7 @@ script = ExtResource( 14 )
 [node name="Tween" type="Tween" parent="View/Camera2D"]
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
-position = Vector2( 96, 1040 )
+position = Vector2( 96, 1027 )
 ground_height_node_path = NodePath("../GroundHeightNode")
 maxHealthPoints = 25
 
