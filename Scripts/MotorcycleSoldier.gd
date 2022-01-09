@@ -10,7 +10,7 @@ func _ready():
 	connect("died", $"..", "_on_Enemy_died")
 	rng.randomize()
 	arrivalSpeed -= rng.randi_range(0, 20)
-	$Control/CenterContainer/LifePoints.text = str(15)
+	$Control/CenterContainer/LifePoints.text = str(5)
 
 
 

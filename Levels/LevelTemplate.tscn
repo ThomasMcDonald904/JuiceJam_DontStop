@@ -161,7 +161,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ "return_to_map" ],
+"args": [ "return_to_map", true ],
 "method": "emit_signal"
 } ]
 }
