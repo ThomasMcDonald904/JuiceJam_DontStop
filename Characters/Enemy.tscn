@@ -9,12 +9,12 @@
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 31.234, 32 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=7]
 size = 19
 font_data = ExtResource( 3 )
 
 [sub_resource type="Theme" id=4]
-default_font = SubResource( 3 )
+default_font = SubResource( 7 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 45.5, 32 )

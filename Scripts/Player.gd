@@ -16,7 +16,7 @@ export(int) var maxHealthPoints = 15
 var shellInstance = null
 var shellExploded = false
 var shell: PackedScene = preload("res://Props/Shell.tscn")
-
+var motorcycleExplosion: PackedScene = preload("res://Props/MotorcycleExplosion.tscn")
 export var reloading = false
 export var can_reload = true
 
@@ -41,6 +41,10 @@ func _on_Area2D_body_entered(body):
 	if body.is_in_group("Bullets"):
 		body.queue_free()
 		healthPoints -= 1
+		emit_signal("life_changed", healthPoints)
+	if body.is_in_group("MotorcycleBullets"):
+		body.queue_free()
+		healthPoints -= 0.5
 		emit_signal("life_changed", healthPoints)
 
 
@@ -87,3 +91,13 @@ func _on_SequenceCoordinator_animation_finished(anim_name):
 	if anim_name == "Reload":
 		$ReloadSequence/AnimationPlayer.play("RetractPusher")
 	pass # Replace with function body.
+
+
+func _on_Area2D_area_entered(area):
+	if area.name == "MotorcycleSoldierArea":
+		var motorcycleExplosion_instance = motorcycleExplosion.instance()
+		motorcycleExplosion_instance.global_position = area.global_position
+		get_tree().get_root().add_child(motorcycleExplosion_instance)
+		area.get_parent().queue_free()
+		healthPoints -= 5
+		emit_signal("life_changed", healthPoints)
