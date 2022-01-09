@@ -26,7 +26,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 2.1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "Welcome to artillery training! We make things go boom here." ]
+"values": [ "Welcome to this field exercise lieutenant! I’m drill sergeant Ralph Hacksaw and I’ll be overseeing your training refresher." ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("RichTextLabel:percent_visible")

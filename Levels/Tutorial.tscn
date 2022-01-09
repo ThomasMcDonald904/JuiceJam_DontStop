@@ -36,7 +36,6 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "Nice shot! If the shell lands close enough or even directly onto the enemy, it'll destroy it instantly, but don't forget about low damage shrapnel !" ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("RichTextLabel:percent_visible")
@@ -135,6 +134,7 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ "Just press the arrow to add explosive charge, click and drag the adjusting wheel *cough* virtually of course to adjust the angle and lastly, FIRE!", "You also have a machine gun for hitting smaller targets(Space). How about you try hiting this old dummy tank next. Oh, and these little buttons above me control the view" ]
+"values": [ "Press the arrow in the top left corner  to add propellant charge, then click and drag the wheel below it to adjust the barrel elevation. Then finally, FIRE!", "How about you try hiting this old dummy tank next. Oh, and these little buttons above me control the view, you can try them out if you want." ]
 }
 tracks/4/type = "bezier"
 tracks/4/path = NodePath("RichTextLabel:percent_visible")
@@ -212,7 +212,6 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "Ouch, that must sting. If the shell doesn't land close enough to the enemy it will still deal shrapnel damage, but it will be less potent than a direct hit. Gotta get a good hit to move on!" ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("RichTextLabel:percent_visible")

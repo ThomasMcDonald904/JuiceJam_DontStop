@@ -13,10 +13,14 @@ region = Rect2( 112, 39, 256, 193 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 40
+use_mipmaps = true
+use_filter = true
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 18
+use_mipmaps = true
+use_filter = true
 font_data = ExtResource( 2 )
 
 [sub_resource type="AtlasTexture" id=7]
@@ -76,6 +80,8 @@ tracks/0/keys = {
 
 [sub_resource type="DynamicFont" id=12]
 size = 90
+use_mipmaps = true
+use_filter = true
 extra_spacing_top = 6
 font_data = ExtResource( 7 )
 
@@ -118,8 +124,8 @@ rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/default_color = Color( 0.196078, 0.0745098, 0, 1 )
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "[center]Recruitment, United Stoneland Army[/center]"
-text = "Recruitment, United Stoneland Army"
+bbcode_text = "[center]Argent Blade Empire[/center]"
+text = "[center]Argent Blade Empire[/center]"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -137,19 +143,15 @@ mouse_filter = 1
 custom_colors/default_color = Color( 0.196078, 0.0745098, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[center]Notice Of Conscription[/center]
+bbcode_text = "[center]3rd Field Artillery Regiment[/center]
 
-By order of the empire, 
-you have been deemed eligible for military duty. Due to your extensive experience with artillery, you have been assigned to the first strike force and will be promoted to piece commander.
-
+I,             , enlist with the Argent Blade Empire in the role of a lieutenant. I accept the burden of commanding my battery and will give my all to this, my great nation. By land and by sea I shall carry with me the heart of the Empire.
 
 
 Signature: "
-text = "Notice Of Conscription
+text = "[center]3rd Field Artillery Regiment[/center]
 
-By order of the empire, 
-you have been deemed eligible for military duty. Due to your extensive experience with artillery, you have been assigned to the first strike force and will be promoted to piece commander.
-
+I,             , enlist with the Argent Blade Empire in the role of a lieutenant. I accept the burden of commanding my battery and will give my all to this, my great nation. By land and by sea I shall carry with me the heart of the Empire.
 
 
 Signature: "
@@ -169,6 +171,22 @@ mouse_filter = 1
 custom_colors/default_color = Color( 0.196078, 0.0745098, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 text = "I, [PLAYERNAME], accept this decree."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerName2" type="RichTextLabel" parent="Document"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 47.0
+margin_top = 51.0
+margin_right = 248.0
+margin_bottom = -117.0
+rect_scale = Vector2( 0.5, 0.5 )
+mouse_filter = 1
+custom_colors/default_color = Color( 0.196078, 0.0745098, 0, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+text = "[PLAYERNAME]"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -49,7 +49,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "Before you head off to the battle field, I'll show you the ropes for these new ADVANCED artilery guns" ]
+"values": [ "Before you ship out with your regiment, I'll show you the ins and outs of these new ADVANCED howitzers" ]
 }
 tracks/4/type = "method"
 tracks/4/path = NodePath("..")

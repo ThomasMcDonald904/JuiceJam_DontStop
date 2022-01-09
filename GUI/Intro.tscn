@@ -61,6 +61,38 @@ margin_bottom = 166.0
 rect_rotation = 19.5254
 next_item_path = NodePath("../TelegramLetter2")
 
+[node name="Header" parent="TelegramLetter/OpenedLetter" index="0"]
+bbcode_text = "[center]Imperial Army - Signal Regiment[/center]"
+text = "Imperial Army - Signal Regiment"
+
+[node name="TelegramText" parent="TelegramLetter/OpenedLetter" index="1"]
+bbcode_text = "[center][color=#822e24]URGENT TELEGRAM[/color][/center]
+
+CMDR In Cheif
+	Brightslash - Sleepyton
+	
+Empire at war with Republic of Balazino. 
+Due to prior experience with field artillery,
+you have been considered for a command position, 
+further information will follow.
+
+Eagles fly above you,
+Commander in Cheif
+Kommorah Blitouf"
+text = "URGENT TELEGRAM
+
+CMDR In Cheif
+	Brightslash - Sleepyton
+	
+Empire at war with Republic of Balazino. 
+Due to prior experience with field artillery,
+you have been considered for a command position, 
+further information will follow.
+
+Eagles fly above you,
+Commander in Cheif
+Kommorah Blitouf"
+
 [node name="LetterTarget" parent="TelegramLetter" index="3"]
 margin_left = 1009.09
 margin_top = -607.181
@@ -79,27 +111,27 @@ margin_bottom = -132.0
 rect_rotation = -48.2114
 next_item_path = NodePath("../RadioMessage")
 
+[node name="Header" parent="TelegramLetter2/OpenedLetter" index="0"]
+bbcode_text = "[center]Imperial Army - Signal Regiment[/center]"
+text = "Imperial Army - Signal Regiment"
+
 [node name="TelegramText" parent="TelegramLetter2/OpenedLetter" index="1"]
 bbcode_text = "[center][color=#822e24]URGENT TELEGRAM[/color][/center]
 
-General Graysky
-	Paila - FOB AC3
+Secretary Graysky
+	Paila - Sleepyton
 	
-Resistance greater than expected. 
-Begin opperation ICARUS.
-No turning back now.
+You are promoted to the rank of lieutenant and will be assigned to the 3rd Field Artillery Regiment, Eagle Battery. A service contract will be sent to your home shortly.
 
 Eagles fly above you,
 
  Pytre Graysky"
 text = "URGENT TELEGRAM
 
-General Graysky
-	Paila - FOB AC3
+Secretary Graysky
+	Paila - Sleepyton
 	
-Resistance greater than expected. 
-Begin opperation ICARUS.
-No turning back now.
+You are promoted to the rank of lieutenant and will be assigned to the 3rd Field Artillery Regiment, Eagle Battery. A service contract will be sent to your home shortly.
 
 Eagles fly above you,
 
