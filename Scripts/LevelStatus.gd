@@ -5,7 +5,7 @@ extends Node
 # var a = 2
 # var b = "text"
 
-var map_scene
+onready var map_scene = preload("res://Levels/Map.tscn")
 
 export(Array, NodePath) var kill_target_paths
 var kill_target_IDs =[]
@@ -21,11 +21,11 @@ func show_GUI():
 func _on_Enemy_died(id):
 	kill_target_IDs.erase(id)
 	if kill_target_IDs.empty():
-		map_scene = preload("res://Levels/Map.tscn")
 		emit_signal("level_end")
 	pass
 
 
-func _on_LevelEndSequence_return_to_map():
-	PlayerVariables.current_station += 1
+func _on_LevelEndSequence_return_to_map(win):
+	if win:
+		PlayerVariables.current_station += 1
 	get_tree().change_scene_to(map_scene)

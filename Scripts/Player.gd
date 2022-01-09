@@ -16,9 +16,10 @@ export(int) var maxHealthPoints = 15
 var shellInstance = null
 var shellExploded = false
 var shell: PackedScene = preload("res://Props/Shell.tscn")
-
+var motorcycleExplosion: PackedScene = preload("res://Props/MotorcycleExplosion.tscn")
 export var reloading = false
 export var can_reload = true
+var map: PackedScene = preload("res://Levels/Map.tscn")
 
 signal life_changed(value)
 signal shell_fired(shell)
@@ -42,6 +43,10 @@ func _on_Area2D_body_entered(body):
 		body.queue_free()
 		healthPoints -= 1
 		emit_signal("life_changed", healthPoints)
+	if body.is_in_group("MotorcycleBullets"):
+		body.queue_free()
+		healthPoints -= 0.5
+		emit_signal("life_changed", healthPoints)
 
 
 func _on_ElevationControl_elevation_changed(value):
@@ -55,6 +60,8 @@ func _process(delta):
 		reload_animation.track_set_key_value(1, 0, elevationNode.rotation_degrees)
 		$ReloadSequence/SequenceCoordinator.play("Reload")
 		emit_signal("reloading")
+	if healthPoints <= 0:
+		$"../CanvasLayer/LevelEndSequence/AnimationPlayer".play("FadeToBlackDeath")
 
 func _on_FireButton_pressed():
 	if not reloading:
@@ -87,3 +94,17 @@ func _on_SequenceCoordinator_animation_finished(anim_name):
 	if anim_name == "Reload":
 		$ReloadSequence/AnimationPlayer.play("RetractPusher")
 	pass # Replace with function body.
+
+
+func _on_Area2D_area_entered(area):
+	if area.name == "MotorcycleSoldierArea":
+		var motorcycleExplosion_instance = motorcycleExplosion.instance()
+		motorcycleExplosion_instance.global_position = area.global_position
+		get_tree().get_root().add_child(motorcycleExplosion_instance)
+		area.get_parent().queue_free()
+		healthPoints -= 5
+		emit_signal("life_changed", healthPoints)
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	pass

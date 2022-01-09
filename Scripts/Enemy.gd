@@ -35,7 +35,9 @@ func _on_Timer_timeout():
 	pass
 
 func _ready():
+	$Control/CenterContainer/LifePoints.text = str(15)
 	connect("died", $"..", "_on_Enemy_died")
+	
 
 func _on_MuzzleFlashTimer_timeout():
 	$MuzzleFlash.visible = false

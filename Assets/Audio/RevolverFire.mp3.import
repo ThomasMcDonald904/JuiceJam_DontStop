@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/RevolverFire.mp3-5923d0f6a966d35c6acb060efb302caa.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/RevolverFire.mp3"
+dest_files=[ "res://.import/RevolverFire.mp3-5923d0f6a966d35c6acb060efb302caa.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

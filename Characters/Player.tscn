@@ -4,8 +4,8 @@
 [ext_resource path="res://Assets/Player/Carriage.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Player/AmmoReloader.png" type="Texture" id=4]
-[ext_resource path="res://Assets/kenney_prototypetextures/PNG/Purple/texture_10.png" type="Texture" id=5]
-[ext_resource path="res://Assets/kenney_prototypetextures/PNG/Purple/texture_09.png" type="Texture" id=6]
+[ext_resource path="res://Assets/MachineGun/MachineGunBody.png" type="Texture" id=5]
+[ext_resource path="res://Assets/MachineGun/MachineGunRotatingHead.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/MachineGun.gd" type="Script" id=7]
 
 [sub_resource type="Animation" id=5]
@@ -143,7 +143,7 @@ extents = Vector2( 92.5, 10.5 )
 extents = Vector2( 91.5, 45 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 75.5348, 526.628 )
+extents = Vector2( 529.412, 9 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 522.945, 133.565 )
@@ -194,7 +194,7 @@ position = Vector2( 145, -10 )
 [node name="Sprite" type="Sprite" parent="Carriage"]
 texture = ExtResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="Carriage/Sprite"]
+[node name="Area2D" type="Area2D" parent="Carriage/Sprite" groups=["Player"]]
 position = Vector2( 1.01725e-05, 0 )
 collision_mask = 64
 
@@ -208,15 +208,13 @@ position = Vector2( -46, 19 )
 
 [node name="MachineGunBody" type="Sprite" parent="Carriage/MachineGun"]
 position = Vector2( 77, 12 )
-scale = Vector2( 0.0170898, 0.0170898 )
 texture = ExtResource( 5 )
 
-[node name="Area2D" type="Area2D" parent="Carriage/MachineGun/MachineGunBody"]
+[node name="Area2D" type="Area2D" parent="Carriage/MachineGun/MachineGunBody" groups=["Player"]]
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Carriage/MachineGun/MachineGunBody/Area2D"]
-position = Vector2( 0, 6.10352e-05 )
-scale = Vector2( 6.972, 1 )
+scale = Vector2( 0.017, 1 )
 shape = SubResource( 3 )
 
 [node name="MachineGunHead" type="Node2D" parent="Carriage/MachineGun"]
@@ -225,25 +223,26 @@ script = ExtResource( 7 )
 rate_of_fire = 8
 
 [node name="BarrelHolder" type="Sprite" parent="Carriage/MachineGun/MachineGunHead"]
-scale = Vector2( 0.010498, 0.00979814 )
+position = Vector2( 20, 0 )
 texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 50, 10 )
 
 [node name="Barrel" type="Sprite" parent="Carriage/MachineGun/MachineGunHead"]
 position = Vector2( 22, 0 )
 scale = Vector2( 0.043, 0.01 )
-texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 1020, 240 )
 
-[node name="Area2D" type="Area2D" parent="Carriage/MachineGun/MachineGunHead/Barrel"]
+[node name="Area2D" type="Area2D" parent="Carriage/MachineGun/MachineGunHead/Barrel" groups=["Player"]]
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Carriage/MachineGun/MachineGunHead/Barrel/Area2D"]
-position = Vector2( -11.3167, 0 )
+position = Vector2( -6.10352e-05, 0 )
 shape = SubResource( 4 )
 
 [node name="BarrelMuzzle" type="Position2D" parent="Carriage/MachineGun/MachineGunHead"]
-position = Vector2( 45, 0 )
+position = Vector2( 46, 0 )
 
 [connection signal="animation_finished" from="ReloadSequence/SequenceCoordinator" to="." method="_on_SequenceCoordinator_animation_finished"]
+[connection signal="area_entered" from="Carriage/Sprite/Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Carriage/Sprite/Area2D" to="." method="_on_Area2D_body_entered"]

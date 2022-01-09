@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 var arrivalSpeed = -75
-var velocity = Vector2.ZERO
 var bullet = preload("res://Props/HeavyBullet.tscn")
 var rng = RandomNumberGenerator.new()
 var waitForTimer = false
@@ -13,6 +12,7 @@ export var life_points = 15
 signal died(id)
 
 func _ready():
+	$Control/CenterContainer/LifePoints.text = str(15)
 	connect("died", $"..", "_on_Enemy_died")
 	rng.randomize()
 	wantedPosition += rng.randi_range(0, 100)
