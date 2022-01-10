@@ -14,7 +14,6 @@ var toss_speed = 2000
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Document/PlayerName2.text = PlayerVariables.player_name
 	$Document/PlayerName.text = "I, %s, accept this decree." % PlayerVariables.player_name
 	$Document/Signature.text = PlayerVariables.player_name
 

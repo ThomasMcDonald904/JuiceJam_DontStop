@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Levels/LevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/TrainingTank.tscn" type="PackedScene" id=2]
@@ -15,6 +15,77 @@
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 3 )
 region = Rect2( 144, 32, 16, 16 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "TutorialExit"
+length = 7.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../TextureButton/Speaker:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.4, 0.45, 0.5, 0.55, 0.75, 0.8, 0.85, 0.9, 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 2, 2.05, 2.1, 2.15, 2.2, 2.25, 2.3, 2.35, 2.5, 2.55, 2.6, 2.65, 2.7, 2.75, 2.8, 2.85, 2.9, 3, 3.05, 3.1, 3.15, 3.2, 3.25, 3.3, 3.35, 3.5, 3.55, 3.6, 3.65, 3.7, 3.701, 3.75, 3.8, 3.85, 3.9, 3.95, 4, 4.05, 4.1, 4.15, 4.25, 4.3, 4.35, 4.4, 4.45, 4.5, 4.55, 4.6, 4.75, 4.8, 4.85, 4.9, 4.95, 4.951, 5, 5.05, 5.1, 5.15, 5.2, 5.25, 5.3, 5.35, 5.4, 5.5, 5.55, 5.6, 5.65, 5.7, 5.75, 5.8, 5.85, 6, 6.05, 6.1, 6.15, 6.2, 6.201, 6.25, 6.35, 6.4, 6.45, 6.5, 6.55, 6.6, 6.65, 6.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0, 10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0, 10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0, 10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0, 10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0, 0.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../NextItemTimer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 7.05 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 7.05 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "message_is_done"
+} ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 11 )
+} ],
+"times": PoolRealArray( 0.05 )
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "BlastWaveHit"
@@ -309,6 +380,9 @@ position = Vector2( 576, 928 )
 [node name="GUI" parent="CanvasLayer" index="0"]
 visible = false
 
+[node name="RadioMessage" parent="CanvasLayer/LevelEndSequence" index="0"]
+animation_to_play = "TutorialExit"
+
 [node name="ClickPrompt" parent="CanvasLayer/LevelEndSequence/RadioMessage/TextureButton" index="2"]
 texture = SubResource( 6 )
 
@@ -318,6 +392,9 @@ visible = true
 [node name="RichTextLabel" parent="CanvasLayer/LevelEndSequence/RadioMessage/Dialog" index="0"]
 bbcode_text = "Perfect! Now that you're sufficiently trained, or not, head off to the battlefield Commander!"
 text = "Perfect! Now that you're sufficiently trained, or not, head off to the battlefield Commander!"
+
+[node name="AnimationPlayer" parent="CanvasLayer/LevelEndSequence/RadioMessage/Dialog" index="1"]
+anims/TutorialExit = SubResource( 10 )
 
 [node name="AudioStreamPlayer" parent="CanvasLayer/LevelEndSequence/RadioMessage/Dialog" index="2"]
 stream = ExtResource( 11 )
@@ -347,11 +424,6 @@ anims/ShrapnelHit = SubResource( 8 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="RadioMessageSystem" index="2"]
 stream = ExtResource( 10 )
-
-[connection signal="elevation_changed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" to="Player" method="_on_ElevationControl_elevation_changed"]
-[connection signal="pressed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/PanelContainer/FireButton" to="Player" method="_on_FireButton_pressed"]
-[connection signal="reloaded" from="Player" to="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" method="_on_Player_reloaded"]
-[connection signal="reloading" from="Player" to="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" method="_on_Player_reloading"]
 
 [editable path="CanvasLayer/GUI"]
 [editable path="CanvasLayer/LevelEndSequence/RadioMessage"]

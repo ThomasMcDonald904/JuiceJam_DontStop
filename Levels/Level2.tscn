@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Levels/LevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Side-Scroller_Tileset6_v1_1/objects/house2.png" type="Texture" id=2]
@@ -6,8 +6,82 @@
 [ext_resource path="res://Characters/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Sounds/Boom_End of lvl dialogue_1.wav" type="AudioStream" id=5]
 
+[sub_resource type="Animation" id=1]
+resource_name = "Level2Exit"
+length = 9.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 8.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../TextureButton/Speaker:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.4, 0.45, 0.5, 0.55, 0.75, 0.8, 0.85, 0.9, 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 2, 2.05, 2.1, 2.15, 2.2, 2.25, 2.3, 2.35, 2.5, 2.55, 2.6, 2.65, 2.7, 2.75, 2.8, 2.85, 2.9, 3, 3.05, 3.1, 3.15, 3.2, 3.25, 3.3, 3.35, 3.5, 3.55, 3.6, 3.65, 3.7, 3.701, 3.75, 3.8, 3.85, 3.9, 3.95, 4, 4.05, 4.1, 4.15, 4.25, 4.3, 4.35, 4.4, 4.45, 4.5, 4.55, 4.6, 4.75, 4.8, 4.85, 4.9, 4.95, 4.951, 5, 5.05, 5.1, 5.15, 5.2, 5.25, 5.3, 5.35, 5.4, 5.5, 5.55, 5.6, 5.65, 5.7, 5.75, 5.8, 5.85, 6, 6.05, 6.1, 6.15, 6.2, 6.201, 6.25, 6.35, 6.4, 6.45, 6.5, 6.55, 6.6, 6.65, 6.7, 6.8, 6.85, 6.9, 6.95, 7, 7.05, 7.1, 7.25, 7.3, 7.35, 7.4, 7.45, 7.451, 7.5, 7.6, 7.65, 7.7, 7.75, 7.8, 7.85, 7.9, 7.95 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0, 10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0, 10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0, 10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0, 10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0, 0.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, 0.0, 10.0, 0.0, -10.0, 0.0, 0.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0, -10.0, 0.0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../NextItemTimer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 8.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 8.45 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "message_is_done"
+} ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
 [node name="Level2" instance=ExtResource( 1 )]
 kill_target_paths = [ NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3") ]
+
+[node name="RadioMessage" parent="CanvasLayer/LevelEndSequence" index="0"]
+animation_to_play = "Level2Exit"
 
 [node name="Dialog" parent="CanvasLayer/LevelEndSequence/RadioMessage" index="5"]
 visible = true
@@ -15,6 +89,9 @@ visible = true
 [node name="RichTextLabel" parent="CanvasLayer/LevelEndSequence/RadioMessage/Dialog" index="0"]
 bbcode_text = "This location is secure. Good job. Advance to the next rendez-vous point. But be careful, I’ve received info that motorcycles are in use in that area."
 text = "This location is secure. Good job. Advance to the next rendez-vous point. But be careful, I’ve received info that motorcycles are in use in that area."
+
+[node name="AnimationPlayer" parent="CanvasLayer/LevelEndSequence/RadioMessage/Dialog" index="1"]
+anims/Level2Exit = SubResource( 1 )
 
 [node name="AudioStreamPlayer" parent="CanvasLayer/LevelEndSequence/RadioMessage/Dialog" index="2"]
 stream = ExtResource( 5 )
@@ -54,11 +131,6 @@ position = Vector2( 3602, 1008 )
 
 [node name="Enemy3" parent="." index="15" instance=ExtResource( 4 )]
 position = Vector2( 3090, 1006 )
-
-[connection signal="elevation_changed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" to="Player" method="_on_ElevationControl_elevation_changed"]
-[connection signal="pressed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/PanelContainer/FireButton" to="Player" method="_on_FireButton_pressed"]
-[connection signal="reloaded" from="Player" to="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" method="_on_Player_reloaded"]
-[connection signal="reloading" from="Player" to="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" method="_on_Player_reloading"]
 
 [editable path="CanvasLayer/GUI"]
 [editable path="CanvasLayer/LevelEndSequence/RadioMessage"]

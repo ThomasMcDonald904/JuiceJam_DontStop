@@ -146,13 +146,13 @@ custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[center]3rd Field Artillery Regiment[/center]
 
-I,             , enlist with the Argent Blade Empire in the role of a lieutenant. I accept the burden of commanding my battery and will give my all to this, my great nation. By land and by sea I shall carry with me the heart of the Empire.
+I enlist with the Argent Blade Empire in the role of a lieutenant. I accept the burden of commanding my battery and will give my all to this, my great nation. By land and by sea I shall carry with me the heart of the Empire.
 
 
 Signature: "
 text = "3rd Field Artillery Regiment
 
-I,             , enlist with the Argent Blade Empire in the role of a lieutenant. I accept the burden of commanding my battery and will give my all to this, my great nation. By land and by sea I shall carry with me the heart of the Empire.
+I enlist with the Argent Blade Empire in the role of a lieutenant. I accept the burden of commanding my battery and will give my all to this, my great nation. By land and by sea I shall carry with me the heart of the Empire.
 
 
 Signature: "
@@ -172,22 +172,6 @@ mouse_filter = 1
 custom_colors/default_color = Color( 0.196078, 0.0745098, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 text = "I, [PLAYERNAME], accept this decree."
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PlayerName2" type="RichTextLabel" parent="Document"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 47.0
-margin_top = 51.0
-margin_right = 248.0
-margin_bottom = -117.0
-rect_scale = Vector2( 0.5, 0.5 )
-mouse_filter = 1
-custom_colors/default_color = Color( 0.196078, 0.0745098, 0, 1 )
-custom_fonts/normal_font = SubResource( 1 )
-text = "[PLAYERNAME]"
 __meta__ = {
 "_edit_use_anchors_": false
 }

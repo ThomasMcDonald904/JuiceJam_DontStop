@@ -71,7 +71,7 @@ text = "Imperial Army - Signal Regiment"
 [node name="TelegramText" parent="TelegramLetter/OpenedLetter" index="1"]
 bbcode_text = "[center][color=#822e24]URGENT TELEGRAM[/color][/center]
 
-CMDR In Cheif
+CMDR In Chief
 	Brightslash - Sleepyton
 	
 Empire at war with Republic of Balazino. 
@@ -80,11 +80,11 @@ you have been considered for a command position,
 further information will follow.
 
 Eagles fly above you,
-Commander in Cheif
+Commander in Chief
 Kommorah Blitouf"
 text = "URGENT TELEGRAM
 
-CMDR In Cheif
+CMDR In Chief
 	Brightslash - Sleepyton
 	
 Empire at war with Republic of Balazino. 
@@ -93,7 +93,7 @@ you have been considered for a command position,
 further information will follow.
 
 Eagles fly above you,
-Commander in Cheif
+Commander in Chief
 Kommorah Blitouf"
 
 [node name="LetterTarget" parent="TelegramLetter" index="3"]

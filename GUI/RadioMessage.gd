@@ -12,6 +12,7 @@ var opened = false
 export var auto_play_message = false
 export var click_to_continue = false
 export(NodePath) var next_item_path
+export var animation_to_play = "IntroDialogAnimation"
 onready var next_item = get_node(next_item_path)
 var toss_speed = 2000
 signal message_done
@@ -44,7 +45,7 @@ func _on_TextureButton_pressed():
 		opened = true
 		$Dialog.rect_rotation = -rect_rotation
 		$Dialog.visible = true
-		$Dialog/AnimationPlayer.play("IntroDialogAnimation")
+		$Dialog/AnimationPlayer.play(animation_to_play)
 	elif click_to_continue:
 		$TextureButton/ClickPrompt.visible = false
 		$TextureButton/AnimationPlayer.stop()
