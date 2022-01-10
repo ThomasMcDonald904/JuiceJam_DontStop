@@ -59,6 +59,7 @@ func _process(delta):
 		var reload_animation: Animation = $ReloadSequence/SequenceCoordinator.get_animation("Reload")
 		reload_animation.track_set_key_value(1, 0, elevationNode.rotation_degrees)
 		$ReloadSequence/SequenceCoordinator.play("Reload")
+		elevationDegrees = 0
 		emit_signal("reloading")
 	if healthPoints <= 0:
 		$"../CanvasLayer/LevelEndSequence/AnimationPlayer".play("FadeToBlackDeath")

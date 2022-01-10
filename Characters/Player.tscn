@@ -151,6 +151,7 @@ extents = Vector2( 522.945, 133.565 )
 [node name="Player" type="Node2D"]
 script = ExtResource( 3 )
 healthPoints = 25
+reloading = true
 
 [node name="ReloadSequence" type="Node2D" parent="."]
 position = Vector2( 1, 0 )

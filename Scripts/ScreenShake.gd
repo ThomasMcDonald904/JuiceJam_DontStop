@@ -17,11 +17,6 @@ func _process(delta):
 	if isShake:
 		shake(delta)    
 
-func _input(event):
-	if Input.is_mouse_button_pressed(BUTTON_RIGHT) and not isShake:
-		elapsedtime = 0
-		isShake = true
-
 func shake(delta):
 	if elapsedtime<shake_time:
 		offset =  Vector2(randf(), randf()) * shake_power

@@ -134,7 +134,6 @@ tracks/3/keys = {
 "times": PoolRealArray( 1.7, 12 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ "Just press the arrow to add explosive charge, click and drag the adjusting wheel *cough* virtually of course to adjust the angle and lastly, FIRE!", "You also have a machine gun for hitting smaller targets(Space). How about you try hiting this old dummy tank next. Oh, and these little buttons above me control the view" ]
 "values": [ "Press the arrow in the top left corner  to add propellant charge, then click and drag the wheel below it to adjust the barrel elevation. Then finally, FIRE!", "How about you try hiting this old dummy tank next. Oh, and these little buttons above me control the view, you can try them out if you want." ]
 }
 tracks/4/type = "bezier"
@@ -285,11 +284,6 @@ anims/ShrapnelHit = SubResource( 8 )
 
 [node name="GroundHeightNode" parent="." index="12"]
 position = Vector2( 840, 1008 )
-
-[connection signal="elevation_changed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" to="Player" method="_on_ElevationControl_elevation_changed"]
-[connection signal="pressed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/PanelContainer/FireButton" to="Player" method="_on_FireButton_pressed"]
-[connection signal="reloaded" from="Player" to="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" method="_on_Player_reloaded"]
-[connection signal="reloading" from="Player" to="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" method="_on_Player_reloading"]
 
 [editable path="CanvasLayer/GUI"]
 [editable path="CanvasLayer/LevelEndSequence/RadioMessage"]
