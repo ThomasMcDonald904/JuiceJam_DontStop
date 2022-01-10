@@ -20,6 +20,9 @@ var motorcycleExplosion: PackedScene = preload("res://Props/MotorcycleExplosion.
 export var reloading = false
 export var can_reload = true
 var map: PackedScene = preload("res://Levels/Map.tscn")
+var life_currently_lost = 0
+var life_bark_threshold = 5
+var low_health_bark_played = false
 
 signal life_changed(value)
 signal shell_fired(shell)
@@ -42,11 +45,25 @@ func _on_Area2D_body_entered(body):
 	if body.is_in_group("Bullets"):
 		body.queue_free()
 		healthPoints -= 1
+		life_currently_lost += 1
 		emit_signal("life_changed", healthPoints)
 	if body.is_in_group("MotorcycleBullets"):
 		body.queue_free()
 		healthPoints -= 0.5
+		life_currently_lost += 0.5
 		emit_signal("life_changed", healthPoints)
+		
+	if life_currently_lost >= life_bark_threshold:
+		if healthPoints < maxHealthPoints/2:
+			if healthPoints <= maxHealthPoints/4:
+				if not $Audio/CriticalStatus.playing():
+					$Audio/CriticalStatus.play_random()
+			else:
+				if not $Audio/LowHealth.playing():
+					$Audio/LowHealth.play_random()
+		else:
+			if not $Audio/GettingHit.playing():
+				$Audio/GettingHit.play_random()
 
 
 func _on_ElevationControl_elevation_changed(value):
@@ -76,15 +93,18 @@ func _on_FireButton_pressed():
 		emit_signal("shell_fired", shellInstance)
 		shellInstance.connect("explode", self, "_on_shell_exploded")
 		shellInstance.player = self
+		$Audio/Firing.play_random()
 		reloading = true
 	
 
 func _on_GUI_propellant_added():
 	propellantCharge += 1
+	$Audio/AddingPropellant.play_random()
 
 
 func _on_GUI_propellant_removed():
 	propellantCharge -= 1
+	$Audio/RemovingPropellant.play_random()
 
 
 func _on_GUI_use_free_view():
@@ -94,6 +114,7 @@ func _on_GUI_use_free_view():
 func _on_SequenceCoordinator_animation_finished(anim_name):
 	if anim_name == "Reload":
 		$ReloadSequence/AnimationPlayer.play("RetractPusher")
+		$Audio/Reloading.play_random()
 	pass # Replace with function body.
 
 

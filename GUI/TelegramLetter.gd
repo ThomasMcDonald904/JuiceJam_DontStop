@@ -25,6 +25,7 @@ func throw_on_desk():
 	var travel_time = ($LetterTarget.rect_global_position - rect_global_position).length()/toss_speed
 	tween.interpolate_property(self,"rect_global_position", rect_global_position, $LetterTarget.rect_global_position, travel_time)
 	tween.interpolate_property(self,"rect_rotation", rect_rotation, $LetterTarget.rect_rotation, travel_time)
+	$AudioStreamPlayer.play()
 	if not tween.is_active():
 		tween.start()
 

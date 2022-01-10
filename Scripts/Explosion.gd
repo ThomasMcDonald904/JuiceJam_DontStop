@@ -25,6 +25,7 @@ func _on_Shell_explode():
 	$Shrapnel/CollisionShape2D.set_deferred("disabled", false)
 	$CollisionKillTimer.start()
 	$FxKillTimer.start()
+	$AudioStreamPlayer2D.play()
 
 func _on_FxKillTimer_timeout():
 	queue_free()

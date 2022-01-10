@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Boom_barks_reloading_3.wav-cc80cf1b7f3eb96b19f07f1ccdde4f00.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Barks/Boom_barks_reloading_3.wav"
+dest_files=[ "res://.import/Boom_barks_reloading_3.wav-cc80cf1b7f3eb96b19f07f1ccdde4f00.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

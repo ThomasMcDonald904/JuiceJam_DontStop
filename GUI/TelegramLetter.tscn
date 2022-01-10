@@ -151,6 +151,8 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="ClosedLetter" to="." method="_on_ClosedLetter_pressed"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
 [connection signal="timeout" from="NextItemTimer" to="." method="_on_NextItemTimer_timeout"]

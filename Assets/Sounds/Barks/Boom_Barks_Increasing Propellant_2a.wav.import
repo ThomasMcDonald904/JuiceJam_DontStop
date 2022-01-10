@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Boom_Barks_Increasing Propellant_2a.wav-e359437b685f1b573a49272db01532bc.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Barks/Boom_Barks_Increasing Propellant_2a.wav"
+dest_files=[ "res://.import/Boom_Barks_Increasing Propellant_2a.wav-e359437b685f1b573a49272db01532bc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

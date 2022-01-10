@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Boom_Barks_Low Health_1b.wav-d3db310d81297501abca5a08a830b750.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Barks/Boom_Barks_Low Health_1b.wav"
+dest_files=[ "res://.import/Boom_Barks_Low Health_1b.wav-d3db310d81297501abca5a08a830b750.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

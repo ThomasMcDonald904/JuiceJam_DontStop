@@ -1,8 +1,18 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/GUI_set_01_v2_0/Menu_Buttons/button_arrow_left_32_strip3.png" type="Texture" id=1]
 [ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice frames/frame3_c2.png" type="Texture" id=2]
 [ext_resource path="res://Assets/uipack_fixed/Font/kenvector_future.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://AudioMixer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_decreasing propellant_1c.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_Decreasing Propellant_3b.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_decreasing propellant_1b.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_decreasing propellant_2c.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_Decreasing Propellant_3c.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_decreasing propellant_2b.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_decreasing propellant_2a.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_Decreasing Propellant_3a.wav" type="AudioStream" id=12]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_decreasing propellant_1a.wav" type="AudioStream" id=13]
 
 [sub_resource type="DynamicFont" id=2]
 size = 8
@@ -59,3 +69,8 @@ texture_hover = SubResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioMixer" parent="RemoveButton" instance=ExtResource( 4 )]
+random_selection = [ [ ExtResource( 13 ), ExtResource( 7 ), ExtResource( 5 ) ], [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 8 ) ], [ ExtResource( 12 ), ExtResource( 6 ), ExtResource( 9 ) ] ]
+
+[connection signal="pressed" from="RemoveButton" to="RemoveButton/AudioMixer" method="play_random"]

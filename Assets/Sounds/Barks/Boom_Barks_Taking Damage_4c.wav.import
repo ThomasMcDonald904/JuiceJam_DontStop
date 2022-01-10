@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Boom_Barks_Taking Damage_4c.wav-9a664f0a727748a613691eb7382626cb.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Barks/Boom_Barks_Taking Damage_4c.wav"
+dest_files=[ "res://.import/Boom_Barks_Taking Damage_4c.wav-9a664f0a727748a613691eb7382626cb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

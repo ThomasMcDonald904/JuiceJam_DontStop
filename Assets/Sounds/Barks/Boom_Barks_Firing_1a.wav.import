@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Boom_Barks_Firing_1a.wav-dcf6d3d6e65cfbef4b6c961c19f5a904.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Barks/Boom_Barks_Firing_1a.wav"
+dest_files=[ "res://.import/Boom_Barks_Firing_1a.wav-dcf6d3d6e65cfbef4b6c961c19f5a904.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

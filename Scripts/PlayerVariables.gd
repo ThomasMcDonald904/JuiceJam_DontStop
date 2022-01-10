@@ -7,6 +7,7 @@ extends Node
 
 var player_name: String = ""
 var current_station = 0
+var skip_tutorial = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

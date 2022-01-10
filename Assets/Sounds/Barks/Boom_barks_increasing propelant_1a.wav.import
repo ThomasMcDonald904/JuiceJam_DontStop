@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Boom_barks_increasing propelant_1a.wav-7acd114e2e62c5cac216ad1172d5edc9.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Barks/Boom_barks_increasing propelant_1a.wav"
+dest_files=[ "res://.import/Boom_barks_increasing propelant_1a.wav-7acd114e2e62c5cac216ad1172d5edc9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

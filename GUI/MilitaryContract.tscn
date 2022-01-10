@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/saint_martyr/saintmartyrital.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/kingthings-trypewriter-2/Kingthings Trypewriter 2.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://GUI/MilitaryContract.gd" type="Script" id=3]
 [ext_resource path="res://Assets/GUI_set05_Books_Letters_Scrolls_Papers_Notes_v1_1/tiledElements/PlacedExamples_480x272/Example_Papersheet.png" type="Texture" id=4]
 [ext_resource path="res://Assets/input-prompts-pixel-16/Tilemap/tilemap_packed.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sounds/SlidingPaper2.wav" type="AudioStream" id=6]
 [ext_resource path="res://Assets/reman/Reman.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="AtlasTexture" id=9]
@@ -125,7 +126,7 @@ custom_colors/default_color = Color( 0.196078, 0.0745098, 0, 1 )
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "[center]Argent Blade Empire[/center]"
-text = "[center]Argent Blade Empire[/center]"
+text = "Argent Blade Empire"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -149,7 +150,7 @@ I,             , enlist with the Argent Blade Empire in the role of a lieutenant
 
 
 Signature: "
-text = "[center]3rd Field Artillery Regiment[/center]
+text = "3rd Field Artillery Regiment
 
 I,             , enlist with the Argent Blade Empire in the role of a lieutenant. I accept the burden of commanding my battery and will give my all to this, my great nation. By land and by sea I shall carry with me the heart of the Empire.
 
@@ -251,6 +252,9 @@ one_shot = true
 [node name="InputPromptDelay" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="pressed" from="Document" to="." method="_on_Document_pressed"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

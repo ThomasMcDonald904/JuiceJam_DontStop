@@ -40,5 +40,7 @@ func _on_ElevationWheel_gui_input(event: InputEvent):
 			if event.pressed == true:
 				clickPoint = get_viewport().get_mouse_position()
 				clicked = true
+				$AudioStreamPlayer.play()
 			else:
 				clicked = false
+				$AudioStreamPlayer.stop()
