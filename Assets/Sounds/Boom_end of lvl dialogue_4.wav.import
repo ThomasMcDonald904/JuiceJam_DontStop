@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Boom_end of lvl dialogue_4.wav-5fbec27531ff7376a9d42e9e9c8d26aa.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Boom_end of lvl dialogue_4.wav"
+dest_files=[ "res://.import/Boom_end of lvl dialogue_4.wav-5fbec27531ff7376a9d42e9e9c8d26aa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

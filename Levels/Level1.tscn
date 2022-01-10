@@ -10,8 +10,8 @@ kill_target_paths = [ NodePath("Enemy"), NodePath("MotorcycleSoldier") ]
 [node name="TrainStation" parent="." index="1"]
 position = Vector2( 123, 879.641 )
 
-[node name="Enemy" parent="CanvasLayer/LevelEndSequence/RadioMessage/Dialog/RichTextLabel" index="3" instance=ExtResource( 2 )]
-position = Vector2( 1959.5, 256 )
+[node name="RichTextLabel" parent="CanvasLayer/LevelEndSequence/RadioMessage/Dialog" index="0"]
+text = "This location is secure. Good job. Advance to the next rendez-vous point. Be careful, I’ve received info that motorcycles are in use in that area."
 
 [node name="Player" parent="." index="4"]
 position = Vector2( 100, 963 )

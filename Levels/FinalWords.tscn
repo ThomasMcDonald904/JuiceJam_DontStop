@@ -1,8 +1,8 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/saint_martyr/saintmartyr.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/kingthings-trypewriter-2/Kingthings Trypewriter 2.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice frames/frame1_c2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sounds/Boom_End Message.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice buttons/button_c2_normal.png" type="Texture" id=4]
 [ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice buttons/button_c2_pressed.png" type="Texture" id=5]
 [ext_resource path="res://Assets/GUI_set_01_v2_0/9-slice buttons/button_c2_mouseover.png" type="Texture" id=6]
@@ -17,20 +17,6 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 40
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 2 )
-
-[sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 48, 48 )
-margin_left = 5.0
-margin_right = 5.0
-margin_top = 5.0
-margin_bottom = 5.0
-
-[sub_resource type="DynamicFont" id=3]
-size = 80
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 2 )
@@ -113,17 +99,17 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 17.0
-margin_top = 328.0
-margin_right = 1902.0
-margin_bottom = 752.0
+margin_top = 380.0
+margin_right = 1903.0
+margin_bottom = 700.0
 alignment = 1
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 1885.0
+margin_right = 1886.0
 margin_bottom = 242.0
 custom_fonts/font = SubResource( 2 )
-text = "You have been successful in caputuring the trading hub. The future of the Argent
-Empire's campaign against the Republic of Balazino's tyrany is secure.
+text = "You have been successful in capturing  the trading hub. The future of the Argent
+Empire's campaign against the Republic of Balazino's tyranny is secure.
 You can be proud of your accomplishments.
 
 Eagles fly above you,"
@@ -131,31 +117,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
-margin_left = 679.0
-margin_top = 246.0
-margin_right = 1205.0
-margin_bottom = 346.0
-size_flags_horizontal = 4
-custom_styles/panel = SubResource( 4 )
-
-[node name="PlayerName" type="Label" parent="CenterContainer/VBoxContainer/PanelContainer"]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 521.0
-margin_bottom = 95.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "PLAYER NAME"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="EndGame" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_left = 871.0
-margin_top = 350.0
+margin_top = 246.0
 margin_right = 1014.0
-margin_bottom = 424.0
+margin_bottom = 320.0
 focus_mode = 0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 5 )
@@ -167,6 +133,10 @@ text = "End Game"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+
+[node name="FinalMessage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
 
 [connection signal="button_down" from="CenterContainer/VBoxContainer/EndGame" to="." method="_on_EndGame_button_down"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/EndGame" to="." method="_on_EndGame_pressed"]

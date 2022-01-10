@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Boom_bark_hit an enemy_4.wav-7283b345d308d6bb4db4642fc05ce7f8.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Barks/drive-download-20220110T223002Z-001/Boom_bark_hit an enemy_4.wav"
+dest_files=[ "res://.import/Boom_bark_hit an enemy_4.wav-7283b345d308d6bb4db4642fc05ce7f8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

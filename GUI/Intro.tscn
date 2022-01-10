@@ -101,7 +101,7 @@ margin_left = 358.234
 margin_top = -465.854
 margin_right = 398.234
 margin_bottom = -425.854
-rect_rotation = -18.886
+rect_rotation = 0.0
 
 [node name="AudioStreamPlayer" parent="TelegramLetter" index="6"]
 stream = ExtResource( 4 )
@@ -146,11 +146,11 @@ Eagles fly above you,
  Pytre Graysky"
 
 [node name="LetterTarget" parent="TelegramLetter2" index="3"]
-margin_left = -500.447
-margin_top = -597.959
-margin_right = -460.447
-margin_bottom = -557.96
-rect_rotation = 24.1476
+margin_left = -436.287
+margin_top = -580.195
+margin_right = -396.287
+margin_bottom = -540.196
+rect_rotation = 0.0
 
 [node name="AudioStreamPlayer" parent="TelegramLetter2" index="6"]
 stream = ExtResource( 5 )
@@ -163,10 +163,10 @@ margin_bottom = -322.0
 next_item_path = NodePath("../MilitaryContract")
 
 [node name="TossTarget" parent="RadioMessage" index="1"]
-margin_left = -32.0
-margin_top = 862.0
-margin_right = 8.0
-margin_bottom = 902.0
+margin_left = -284.0
+margin_top = 802.0
+margin_right = -244.0
+margin_bottom = 842.0
 rect_rotation = -12.0752
 
 [node name="MilitaryContract" parent="." instance=ExtResource( 3 )]

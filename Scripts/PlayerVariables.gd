@@ -5,7 +5,7 @@ extends Node
 # var a = 2
 # var b = "text"
 
-var player_name: String = ""
+var player_name: String = "PlayerName"
 var current_station = 0
 var skip_tutorial = false
 # Called when the node enters the scene tree for the first time.

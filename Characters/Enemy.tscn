@@ -1,10 +1,38 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Assets/SimpleShadingTank_JustGray.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://Assets/big_pixel/Big Pixel demo.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://AudioMixer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Audio/TankFire.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Assets/particlePack_1.1/PNG (Transparent)/muzzle_04.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_hit an enemy_ 4b.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_hit an enemeny_3a.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_hit an enemeny_3b.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_hit an enemy_ 4a.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_hit an enemeny_3c.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_hit an enemy_2a.wav" type="AudioStream" id=12]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_Destroyed an enemy_light_6a.wav" type="AudioStream" id=13]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_destroyed an enemy_3b.wav" type="AudioStream" id=14]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_destroyed an enemy_2c.wav" type="AudioStream" id=15]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_destroyed an enemy_2a.wav" type="AudioStream" id=16]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_hit an enemy_2c.wav" type="AudioStream" id=17]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_bark_destroyed an enemy_4c.wav" type="AudioStream" id=18]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_Destroyed an enemy_light_6c.wav" type="AudioStream" id=19]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_bark_destroyed an enemy_4b.wav" type="AudioStream" id=20]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_hit an enemy_ 4cwav.wav" type="AudioStream" id=21]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_destroyed an enemy_2b.wav" type="AudioStream" id=22]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_hit an enemy_2b.wav" type="AudioStream" id=23]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_bark_destroyed an enemy_4a.wav" type="AudioStream" id=24]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_destroyed an enemy_3a.wav" type="AudioStream" id=25]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_destroyed an enemy_3c.wav" type="AudioStream" id=26]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Bark_Destroyed an enemy_light_6b.wav" type="AudioStream" id=27]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_destroyed an enemy_1b.wav" type="AudioStream" id=28]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_Hit an Enemy_1a.wav" type="AudioStream" id=29]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_destroyed an enemy_1a.wav" type="AudioStream" id=30]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_destroyed an enemy_7.wav" type="AudioStream" id=31]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_Hit an Enemy_1c.wav" type="AudioStream" id=32]
+[ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_Hit an Enemy_1b.wav" type="AudioStream" id=33]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 31.234, 32 )
@@ -100,6 +128,12 @@ volume_db = -8.667
 
 [node name="SoundTimer" type="Timer" parent="MuzzleFlash"]
 wait_time = 1.03
+
+[node name="AudioMixerHit" parent="." instance=ExtResource( 4 )]
+random_selection = [ [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 11 ) ], [ ExtResource( 12 ), ExtResource( 23 ), ExtResource( 17 ) ], [ ExtResource( 10 ), ExtResource( 7 ), ExtResource( 21 ) ], [ ExtResource( 29 ), ExtResource( 33 ), ExtResource( 32 ) ] ]
+
+[node name="AudioMixerDestroyed" parent="." instance=ExtResource( 4 )]
+random_selection = [ [ ExtResource( 13 ), ExtResource( 27 ), ExtResource( 19 ) ], [ ExtResource( 24 ), ExtResource( 20 ), ExtResource( 18 ) ], [ ExtResource( 25 ), ExtResource( 14 ), ExtResource( 26 ) ], [ ExtResource( 16 ), ExtResource( 22 ), ExtResource( 15 ) ], [ ExtResource( 30 ), ExtResource( 28 ), ExtResource( 31 ) ] ]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

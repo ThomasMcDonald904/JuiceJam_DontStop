@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Boom_Bark_Destroyed an enemy_light_6c.wav-44186655c2a07707cbc54d7420f029ee.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Barks/Boom_Bark_Destroyed an enemy_light_6c.wav"
+dest_files=[ "res://.import/Boom_Bark_Destroyed an enemy_light_6c.wav-44186655c2a07707cbc54d7420f029ee.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Boom_Bark_hit an enemy_ 4a.wav-7a40e484f7444786513e92fc4292117e.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Barks/Boom_Bark_hit an enemy_ 4a.wav"
+dest_files=[ "res://.import/Boom_Bark_hit an enemy_ 4a.wav-7a40e484f7444786513e92fc4292117e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

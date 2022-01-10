@@ -1,17 +1,66 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Levels/LevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/HeavyEnemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Environment/Trading Post.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/Level3Tileset.tres" type="TileSet" id=4]
+[ext_resource path="res://Props/TownHouse.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Sounds/Boom_end of lvl dialogue_4.wav" type="AudioStream" id=6]
 
 [node name="Level4" instance=ExtResource( 1 )]
-kill_target_paths = [ NodePath("HeavyEnemy") ]
+kill_target_paths = [ NodePath("HeavyEnemy"), NodePath("HeavyEnemy2"), NodePath("HeavyEnemy3"), NodePath("HeavyEnemy4") ]
+
+[node name="Decore" type="Node2D" parent="." index="0"]
+
+[node name="TownHouse2" parent="Decore" index="0" instance=ExtResource( 5 )]
+position = Vector2( 1926, 898 )
+
+[node name="TownHouse3" parent="Decore" index="1" instance=ExtResource( 5 )]
+position = Vector2( 2522, 898 )
+
+[node name="TownHouse4" parent="Decore" index="2" instance=ExtResource( 5 )]
+position = Vector2( 2207, 899 )
+
+[node name="TownHouse5" parent="Decore" index="3" instance=ExtResource( 5 )]
+position = Vector2( 1632, 899 )
+
+[node name="TownHouse6" parent="Decore" index="4" instance=ExtResource( 5 )]
+position = Vector2( 2910, 898 )
+
+[node name="Trading Post" parent="Decore" index="5" instance=ExtResource( 3 )]
+position = Vector2( 391, 770 )
+
+[node name="Trading Post2" parent="Decore" index="6" instance=ExtResource( 3 )]
+position = Vector2( 1671, 770 )
+scale = Vector2( -1, 1 )
+
+[node name="TileMap" type="TileMap" parent="Decore" index="7"]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 4128860, 52, 0, 4194324, 48, 0, 4194329, 48, 0, 4194330, 88, 0, 4194362, 48, 0, 4194364, 536871000, 0, 4194383, 48, 0, 4194420, 48, 0, 4194437, 48, 0, 4194441, 48, 0, 4194460, 48, 0, 4259868, 536871000, 0, 4259883, 49, 0, 4259884, 49, 0, 4259889, 49, 0, 4259903, 49, 0, 4259914, 536870962, 0, 4259922, 49, 0, 4259938, 49, 0, 4259941, 49, 0, 4259959, 49, 0, 4259963, 50, 0 )
+
+[node name="Dialog" parent="CanvasLayer/LevelEndSequence/RadioMessage" index="5"]
+visible = true
 
 [node name="RichTextLabel" parent="CanvasLayer/LevelEndSequence/RadioMessage/Dialog" index="0"]
-bbcode_text = "Yipee... fourth area... you know the drill."
-text = "Yipee... fourth area... you know the drill."
+bbcode_text = "You’ve done it Lieutenant. Next stop is our primary objective, the trading hub. Give yourself a pat on the back. Time to unwind."
+text = "You’ve done it Lieutenant. Next stop is our primary objective, the trading hub. Give yourself a pat on the back and buy your men a pint; it's on me. Time to unwind."
 
-[node name="HeavyEnemy" parent="." index="7" instance=ExtResource( 2 )]
+[node name="AudioStreamPlayer" parent="CanvasLayer/LevelEndSequence/RadioMessage/Dialog" index="2"]
+stream = ExtResource( 6 )
+
+[node name="HeavyEnemy" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 1708, 1000 )
+
+[node name="HeavyEnemy2" parent="." index="9" instance=ExtResource( 2 )]
+position = Vector2( 2349, 1001 )
+
+[node name="HeavyEnemy3" parent="." index="10" instance=ExtResource( 2 )]
+position = Vector2( 2798, 1002 )
+
+[node name="HeavyEnemy4" parent="." index="11" instance=ExtResource( 2 )]
+position = Vector2( 3092, 1002 )
 
 [connection signal="elevation_changed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/ElevationControl" to="Player" method="_on_ElevationControl_elevation_changed"]
 [connection signal="pressed" from="CanvasLayer/GUI/HBoxContainer/Status/LifeAndAmmo/PanelContainer/FireButton" to="Player" method="_on_FireButton_pressed"]

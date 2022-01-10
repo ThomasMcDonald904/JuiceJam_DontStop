@@ -70,6 +70,9 @@ func blast_wave_damage():
 		if life_points <= 0:
 			emit_signal("died", get_instance_id())
 			queue_free()
+			$AudioMixerDestroyed.play_random()
+		else:
+			$AudioMixerHit.play_random()
 	pass
 
 func shrapnel_damage():
@@ -79,4 +82,7 @@ func shrapnel_damage():
 		if life_points <= 0:
 			emit_signal("died", get_instance_id())
 			queue_free()
+			$AudioMixerDestroyed.play_random()
+		else:
+			$AudioMixerHit.play_random()
 	pass
