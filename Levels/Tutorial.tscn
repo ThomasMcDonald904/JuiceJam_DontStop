@@ -335,7 +335,7 @@ position = Vector2( 840, 1008 )
 position = Vector2( 1578, 950 )
 
 [node name="RadioMessageSystem" parent="." index="11" instance=ExtResource( 4 )]
-margin_right = -5.00061
+margin_right = -5.00049
 
 [node name="RichTextLabel" parent="RadioMessageSystem/Dialog" index="0"]
 scroll_active = false

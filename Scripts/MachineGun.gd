@@ -21,7 +21,9 @@ func _physics_process(delta):
 		time_to_next_bullet = 0
 
 func _on_fire_bullet():
+	$AudioStreamPlayer.play()
 	var bullet_instance = bullet.instance()
 	bullet_instance.global_position = $BarrelMuzzle.global_position
 	bullet_instance.rotation = rotation
 	get_tree().get_root().add_child(bullet_instance)
+
