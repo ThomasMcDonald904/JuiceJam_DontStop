@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=2]
+[gd_scene load_steps=90 format=2]
 
 [ext_resource path="res://Assets/Player/Barrel.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Player/Carriage.png" type="Texture" id=2]
@@ -67,6 +67,7 @@
 [ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_Taking Damage_5b.wav" type="AudioStream" id=65]
 [ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_Takoing Damage_2b.wav" type="AudioStream" id=66]
 [ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_Taking Damage_1c.wav" type="AudioStream" id=67]
+[ext_resource path="res://Assets/Audio/Rifle-Automatic-Fire-E-www.fesliyanstudios.com.mp3" type="AudioStream" id=68]
 [ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_Taking Damage_7b.wav" type="AudioStream" id=69]
 [ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_Taking Damage_4b.wav" type="AudioStream" id=70]
 [ext_resource path="res://Assets/Sounds/Barks/Boom_Barks_Taking Damage_3b.wav" type="AudioStream" id=73]
@@ -315,6 +316,10 @@ shape = SubResource( 4 )
 
 [node name="BarrelMuzzle" type="Position2D" parent="Carriage/MachineGun/MachineGunHead"]
 position = Vector2( 46, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Carriage/MachineGun/MachineGunHead"]
+stream = ExtResource( 68 )
+volume_db = 3.939
 
 [node name="Audio" type="Node" parent="."]
 
