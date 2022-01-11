@@ -280,8 +280,8 @@ margin_bottom = 56.0
 custom_icons/checked = ExtResource( 10 )
 custom_icons/unchecked = ExtResource( 11 )
 
-[connection signal="button_down" from="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/NewGame" to="." method="_on_NewGame_button_down"]
 [connection signal="button_down" from="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/NewGame" to="." method="_on_StartButton_button_down"]
+[connection signal="button_down" from="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/NewGame" to="." method="_on_NewGame_button_down"]
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="button_down" from="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_button_down"]
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
